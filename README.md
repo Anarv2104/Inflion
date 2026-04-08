@@ -14,10 +14,12 @@ providing reproducible metrics for semantic drift, propagation risk, and reasoni
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/v/inflion.svg?cacheSeconds=60" alt="PyPI version"></a>
-  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/pyversions/inflion.svg?cacheSeconds=60" alt="Python versions"></a>
-  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/l/inflion.svg?cacheSeconds=60" alt="License"></a>
-  <a href="https://pepy.tech/project/inflion"><img src="https://static.pepy.tech/badge/inflion" alt="Downloads"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/v/inflion.svg?cacheSeconds=60?cacheSeconds=60" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/pyversions/inflion.svg?cacheSeconds=60?cacheSeconds=60" alt="Python versions"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/l/inflion.svg?cacheSeconds=60?cacheSeconds=60" alt="License"></a>
+  <a href="https://pypi.org/project/inflion/">
+    <img src="https://img.shields.io/pypi/dm/inflion.svg?cacheSeconds=60" alt="Downloads">
+  </a>
 </p>
 
 <p align="center">
