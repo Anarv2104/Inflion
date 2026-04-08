@@ -9,7 +9,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in TraceIQ, please report it by:
+If you discover a security vulnerability in Inflion, please report it by:
 
 1. **Email**: Open an issue on GitHub with the label "security" (do not include sensitive details in public issues)
 2. **GitHub Security Advisories**: Use GitHub's private vulnerability reporting feature

@@ -1,6 +1,6 @@
-# TraceIQ Mathematical Framework
+# Inflion Mathematical Framework
 
-This document provides the complete mathematical formulation for TraceIQ's influence quantification metrics, as implemented in v0.3.0.
+This document provides the complete mathematical formulation for Inflion's influence quantification metrics, as implemented in v0.3.0.
 
 ## Table of Contents
 
@@ -34,7 +34,7 @@ This document provides the complete mathematical formulation for TraceIQ's influ
 
 ## Drift Detection
 
-TraceIQ v0.3.0 computes two types of L2 drift to support different use cases:
+Inflion v0.3.0 computes two types of L2 drift to support different use cases:
 
 ### Canonical State Drift (`drift_l2_state`) - PRIMARY
 
@@ -105,7 +105,7 @@ where:
 
 ### Observable Approximation
 
-Computing $S_j^{\emptyset}(t^+)$ requires running the agent without the message, which is expensive and often impractical. TraceIQ uses an **observable approximation**:
+Computing $S_j^{\emptyset}(t^+)$ requires running the agent without the message, which is expensive and often impractical. Inflion uses an **observable approximation**:
 
 $$\hat{I}(i \to j, t) = D(S_j(t^+), S_j(t^-))$$
 

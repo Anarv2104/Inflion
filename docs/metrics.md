@@ -1,6 +1,6 @@
 # Understanding Metrics
 
-TraceIQ computes several metrics to quantify influence between agents.
+Inflion computes several metrics to quantify influence between agents.
 
 ## Core Concepts
 
@@ -195,11 +195,11 @@ for agent, score in summary.top_susceptible:
 
 ## Research Metrics
 
-TraceIQ provides project-defined research metrics for influence quantification. These are documented in this repository and are not externally standardized.
+Inflion provides project-defined research metrics for influence quantification. These are documented in this repository and are not externally standardized.
 
 ### Drift Types
 
-TraceIQ computes two types of L2 drift:
+Inflion computes two types of L2 drift:
 
 #### Canonical State Drift (`drift_l2_state`) - PRIMARY
 
@@ -289,7 +289,7 @@ Alert triggered when `|Z| > anomaly_threshold` (default: 2.0).
 
 #### Z_score vs robust_z Naming
 
-TraceIQ uses MAD-based (Median Absolute Deviation) robust Z-score computation internally:
+Inflion uses MAD-based (Median Absolute Deviation) robust Z-score computation internally:
 
 ```
 robust_z = 0.6745 * (IQx - median) / (MAD + epsilon)
@@ -306,7 +306,7 @@ Both fields contain identical values computed via the robust MAD method. The dua
 ### Example Usage
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 config = TrackerConfig(
     epsilon=1e-6,

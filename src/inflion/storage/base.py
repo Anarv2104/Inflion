@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 from uuid import UUID
 
 if TYPE_CHECKING:
-    from traceiq.models import InteractionEvent, ScoreResult
+    from inflion.models import InteractionEvent, ScoreResult
 
 
 class StorageBackend(ABC):

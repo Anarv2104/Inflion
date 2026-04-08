@@ -1,53 +1,53 @@
 # CLI Reference
 
-TraceIQ provides a command-line interface for common operations.
+Inflion provides a command-line interface for common operations.
 
 ## Installation
 
 The CLI is installed automatically with the package:
 
 ```bash
-pip install traceiq
+pip install inflion
 ```
 
 Verify installation:
 
 ```bash
-traceiq --version
+inflion --version
 ```
 
 ## Commands
 
-### `traceiq init`
+### `inflion init`
 
-Initialize a new TraceIQ database.
+Initialize a new Inflion database.
 
 ```bash
-traceiq init [OPTIONS]
+inflion init [OPTIONS]
 ```
 
 **Options:**
-- `--db PATH` - Path to SQLite database (default: `traceiq.db`)
+- `--db PATH` - Path to SQLite database (default: `inflion.db`)
 - `--config PATH` - Path to JSON config file
 
 **Example:**
 ```bash
-traceiq init --db myproject.db
+inflion init --db myproject.db
 ```
 
-### `traceiq ingest`
+### `inflion ingest`
 
 Ingest interactions from a JSONL file.
 
 ```bash
-traceiq ingest INPUT_FILE [OPTIONS]
+inflion ingest INPUT_FILE [OPTIONS]
 ```
 
 **Arguments:**
 - `INPUT_FILE` - Path to JSONL file with interactions
 
 **Options:**
-- `--db PATH` - Path to SQLite database (default: `traceiq.db`)
+- `--db PATH` - Path to SQLite database (default: `inflion.db`)
 - `--mock-embedder` - Use mock embedder (no sentence-transformers required)
 
 **Input Format:**
@@ -58,59 +58,59 @@ Each line should be a JSON object:
 
 **Example:**
 ```bash
-traceiq ingest interactions.jsonl --db myproject.db --mock-embedder
+inflion ingest interactions.jsonl --db myproject.db --mock-embedder
 ```
 
-### `traceiq summary`
+### `inflion summary`
 
 Show summary of tracked interactions.
 
 ```bash
-traceiq summary [OPTIONS]
+inflion summary [OPTIONS]
 ```
 
 **Options:**
-- `--db PATH` - Path to SQLite database (default: `traceiq.db`)
+- `--db PATH` - Path to SQLite database (default: `inflion.db`)
 - `--top-n INT` - Number of top agents to show (default: 10)
 - `--json` - Output as JSON
 
 **Example:**
 ```bash
-traceiq summary --db myproject.db --top-n 5
+inflion summary --db myproject.db --top-n 5
 
 # JSON output
-traceiq summary --db myproject.db --json > summary.json
+inflion summary --db myproject.db --json > summary.json
 ```
 
-### `traceiq export`
+### `inflion export`
 
 Export data to CSV or JSONL.
 
 ```bash
-traceiq export [OPTIONS]
+inflion export [OPTIONS]
 ```
 
 **Options:**
-- `--db PATH` - Path to SQLite database (default: `traceiq.db`)
+- `--db PATH` - Path to SQLite database (default: `inflion.db`)
 - `-o, --output PATH` - Output file path (required)
 - `--format [csv|jsonl]` - Export format (default: csv)
 
 **Example:**
 ```bash
-traceiq export --db myproject.db -o data.csv --format csv
-traceiq export --db myproject.db -o data.jsonl --format jsonl
+inflion export --db myproject.db -o data.csv --format csv
+inflion export --db myproject.db -o data.jsonl --format jsonl
 ```
 
-### `traceiq plot`
+### `inflion plot`
 
-Generate visualizations. Requires matplotlib (`pip install traceiq[plot]`).
+Generate visualizations. Requires matplotlib (`pip install inflion[plot]`).
 
-#### `traceiq plot drift`
+#### `inflion plot drift`
 
 Plot drift over time.
 
 ```bash
-traceiq plot drift [OPTIONS]
+inflion plot drift [OPTIONS]
 ```
 
 **Options:**
@@ -119,15 +119,15 @@ traceiq plot drift [OPTIONS]
 
 **Example:**
 ```bash
-traceiq plot drift --db myproject.db -o drift.png
+inflion plot drift --db myproject.db -o drift.png
 ```
 
-#### `traceiq plot heatmap`
+#### `inflion plot heatmap`
 
 Plot influence heatmap.
 
 ```bash
-traceiq plot heatmap [OPTIONS]
+inflion plot heatmap [OPTIONS]
 ```
 
 **Options:**
@@ -136,15 +136,15 @@ traceiq plot heatmap [OPTIONS]
 
 **Example:**
 ```bash
-traceiq plot heatmap --db myproject.db -o heatmap.png
+inflion plot heatmap --db myproject.db -o heatmap.png
 ```
 
-#### `traceiq plot influencers`
+#### `inflion plot influencers`
 
 Plot top influencers bar chart.
 
 ```bash
-traceiq plot influencers [OPTIONS]
+inflion plot influencers [OPTIONS]
 ```
 
 **Options:**
@@ -154,15 +154,15 @@ traceiq plot influencers [OPTIONS]
 
 **Example:**
 ```bash
-traceiq plot influencers --db myproject.db -o top.png --top-n 5
+inflion plot influencers --db myproject.db -o top.png --top-n 5
 ```
 
-#### `traceiq plot network`
+#### `inflion plot network`
 
 Plot influence network graph.
 
 ```bash
-traceiq plot network [OPTIONS]
+inflion plot network [OPTIONS]
 ```
 
 **Options:**
@@ -172,31 +172,31 @@ traceiq plot network [OPTIONS]
 
 **Example:**
 ```bash
-traceiq plot network --db myproject.db -o network.png --min-weight 0.2
+inflion plot network --db myproject.db -o network.png --min-weight 0.2
 ```
 
 ## Workflow Example
 
 ```bash
 # 1. Initialize database
-traceiq init --db analysis.db
+inflion init --db analysis.db
 
 # 2. Prepare your interactions file (interactions.jsonl)
 # Each line: {"sender_id": "...", "receiver_id": "...", "sender_content": "...", "receiver_content": "..."}
 
 # 3. Ingest data
-traceiq ingest interactions.jsonl --db analysis.db
+inflion ingest interactions.jsonl --db analysis.db
 
 # 4. View summary
-traceiq summary --db analysis.db
+inflion summary --db analysis.db
 
 # 5. Export for further analysis
-traceiq export --db analysis.db -o results.csv
+inflion export --db analysis.db -o results.csv
 
 # 6. Generate visualizations
-traceiq plot heatmap --db analysis.db -o heatmap.png
-traceiq plot network --db analysis.db -o network.png
-traceiq plot influencers --db analysis.db -o influencers.png
+inflion plot heatmap --db analysis.db -o heatmap.png
+inflion plot network --db analysis.db -o network.png
+inflion plot influencers --db analysis.db -o influencers.png
 ```
 
 ## Configuration File
@@ -206,7 +206,7 @@ You can use a JSON config file:
 ```json
 {
   "storage_backend": "sqlite",
-  "storage_path": "traceiq.db",
+  "storage_path": "inflion.db",
   "baseline_window": 10,
   "drift_threshold": 0.3,
   "influence_threshold": 0.5
@@ -215,5 +215,5 @@ You can use a JSON config file:
 
 Use with:
 ```bash
-traceiq init --config config.json
+inflion init --config config.json
 ```

@@ -5,10 +5,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from uuid import UUID
 
-from traceiq.storage.base import StorageBackend
+from inflion.storage.base import StorageBackend
 
 if TYPE_CHECKING:
-    from traceiq.models import InteractionEvent, ScoreResult
+    from inflion.models import InteractionEvent, ScoreResult
 
 
 class MemoryStorage(StorageBackend):

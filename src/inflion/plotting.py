@@ -6,9 +6,9 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from traceiq.capabilities import CapabilityRegistry
-    from traceiq.graph import InfluenceGraph
-    from traceiq.models import InteractionEvent, PropagationRiskResult, ScoreResult
+    from inflion.capabilities import CapabilityRegistry
+    from inflion.graph import InfluenceGraph
+    from inflion.models import InteractionEvent, PropagationRiskResult, ScoreResult
 
 
 def _check_matplotlib() -> None:
@@ -19,7 +19,7 @@ def _check_matplotlib() -> None:
         raise ImportError(
             "matplotlib is required for plotting. "
             "Install it with: pip install matplotlib "
-            "or pip install traceiq[plot]"
+            "or pip install inflion[plot]"
         ) from e
 
 

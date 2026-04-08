@@ -1,4 +1,4 @@
-"""Risk report generation for TraceIQ.
+"""Risk report generation for Inflion.
 
 This module provides functions to generate summary reports from tracked events,
 including risk analysis, policy effectiveness, and agent rankings.
@@ -13,12 +13,12 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
 
 if TYPE_CHECKING:
-    from traceiq.models import ScoreResult
-    from traceiq.schema import TraceIQEvent
+    from inflion.models import ScoreResult
+    from inflion.schema import InflionEvent
 
 
 def generate_risk_report(
-    events: list[TraceIQEvent],
+    events: list[InflionEvent],
     scores: list[ScoreResult],
     run_id: str,
     output_path: Path | str,
@@ -34,7 +34,7 @@ def generate_risk_report(
     - Policy effectiveness (blocked vs applied)
 
     Args:
-        events: List of TraceIQEvent objects
+        events: List of InflionEvent objects
         scores: List of ScoreResult objects
         run_id: Run identifier for the report
         output_path: Path to write the report
@@ -53,7 +53,7 @@ def generate_risk_report(
 
 
 def _build_report_data(
-    events: list[TraceIQEvent],
+    events: list[InflionEvent],
     scores: list[ScoreResult],
     run_id: str,
 ) -> dict[str, Any]:
@@ -174,7 +174,7 @@ def _build_report_data(
 def _write_markdown_report(data: dict[str, Any], output_path: Path) -> None:
     """Write report in Markdown format."""
     lines = [
-        "# TraceIQ Risk Report",
+        "# Inflion Risk Report",
         "",
         f"**Run ID:** {data['run_id']}",
         "",
@@ -290,7 +290,7 @@ def _write_json_report(data: dict[str, Any], output_path: Path) -> None:
 
 
 def generate_quick_summary(
-    events: list[TraceIQEvent],
+    events: list[InflionEvent],
     scores: list[ScoreResult],
 ) -> dict[str, Any]:
     """Generate a quick summary without writing to file.
@@ -357,7 +357,7 @@ def plot_risk_calibration_curve(
     except ImportError as err:
         raise ImportError(
             "matplotlib and numpy required for plotting. "
-            "Install with: pip install 'traceiq[plot]'"
+            "Install with: pip install 'inflion[plot]'"
         ) from err
 
     output_path = Path(output_path)

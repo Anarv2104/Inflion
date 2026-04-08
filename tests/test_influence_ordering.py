@@ -1,6 +1,6 @@
 """Influence ordering with synthetic ground truth."""
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 
 class TestInfluenceRanking:

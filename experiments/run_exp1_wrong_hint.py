@@ -2,7 +2,7 @@
 """Experiment 1: Wrong Hint Infection.
 
 This experiment measures how wrong hints from an influencer affect solver accuracy
-and TraceIQ's ability to detect the influence.
+and Inflion's ability to detect the influence.
 
 Conditions:
 - A: No influencer (baseline)

@@ -1,12 +1,12 @@
 # Architecture Overview
 
-This document describes TraceIQ's internal architecture and data flow.
+This document describes Inflion's internal architecture and data flow.
 
 ## Project Structure
 
 ```
-TraceIQ/
-├── src/traceiq/
+Inflion/
+├── src/inflion/
 │   ├── __init__.py          # Public API exports
 │   ├── models.py             # Pydantic data models
 │   ├── tracker.py            # Main InfluenceTracker class
@@ -21,7 +21,7 @@ TraceIQ/
 │   ├── validity.py           # Cold-start and validity checking
 │   ├── risk.py               # Risk score computation
 │   ├── policy.py             # Policy engine for mitigation
-│   ├── schema.py             # TraceIQEvent schema
+│   ├── schema.py             # InflionEvent schema
 │   └── storage/
 │       ├── base.py           # Abstract StorageBackend
 │       ├── memory.py         # In-memory backend

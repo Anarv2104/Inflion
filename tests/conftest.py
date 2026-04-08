@@ -7,11 +7,11 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from traceiq.embeddings import MockEmbedder
-from traceiq.models import InteractionEvent, ScoreResult, TrackerConfig
-from traceiq.scoring import ScoringEngine
-from traceiq.storage import MemoryStorage, SQLiteStorage
-from traceiq.tracker import InfluenceTracker
+from inflion.embeddings import MockEmbedder
+from inflion.models import InteractionEvent, ScoreResult, TrackerConfig
+from inflion.scoring import ScoringEngine
+from inflion.storage import MemoryStorage, SQLiteStorage
+from inflion.tracker import InfluenceTracker
 
 
 @pytest.fixture

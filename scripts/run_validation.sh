@@ -242,8 +242,8 @@ sanity_check() {
     echo "========================================"
     echo "Sanity Check"
     echo "========================================"
-    if ! python -c "import traceiq; print(f'traceiq version: {traceiq.__version__}')"; then
-        echo "FATAL: Cannot import traceiq"
+    if ! python -c "import inflion; print(f'inflion version: {inflion.__version__}')"; then
+        echo "FATAL: Cannot import inflion"
         exit 1
     fi
     echo "Sanity check PASSED"

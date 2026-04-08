@@ -1,6 +1,6 @@
-# TraceIQ Theoretical Framework
+# Inflion Theoretical Framework
 
-This document provides the formal mathematical foundations for TraceIQ's influence quantification metrics. It establishes the theoretical basis for the empirical measurements implemented in the library.
+This document provides the formal mathematical foundations for Inflion's influence quantification metrics. It establishes the theoretical basis for the empirical measurements implemented in the library.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ This document provides the formal mathematical foundations for TraceIQ's influen
 
 ### Definition 1: Agent State
 
-An **agent state** $S_i(t)$ is a vector representation of agent $i$'s behavior at time $t$. In TraceIQ, this is computed as the semantic embedding of the agent's output:
+An **agent state** $S_i(t)$ is a vector representation of agent $i$'s behavior at time $t$. In Inflion, this is computed as the semantic embedding of the agent's output:
 
 $$S_i(t) = \text{embed}(\text{output}_i(t)) \in \mathbb{R}^d$$
 
@@ -37,7 +37,7 @@ where:
 
 ### Definition 3: Observable Influence (Approximation)
 
-Computing $S_i^{\emptyset}(t^+)$ requires running the agent without the message, which is expensive and often impractical. TraceIQ uses an **observable approximation**:
+Computing $S_i^{\emptyset}(t^+)$ requires running the agent without the message, which is expensive and often impractical. Inflion uses an **observable approximation**:
 
 $$\hat{I}(j \to i, t) = D(S_i(t^+), S_i(t^-))$$
 
@@ -228,7 +228,7 @@ In the absence of external input, agent behavior is locally stable over short ti
 All influence flows through observed message channels.
 
 **Implications**:
-- TraceIQ cannot detect influence via:
+- Inflion cannot detect influence via:
   - Shared memory
   - Environment modifications
   - Out-of-band communication
@@ -314,4 +314,4 @@ Recommended values:
 
 ---
 
-*This document accompanies the TraceIQ library and provides the mathematical foundations for its metrics.*
+*This document accompanies the Inflion library and provides the mathematical foundations for its metrics.*

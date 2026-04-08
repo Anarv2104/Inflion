@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 
 @pytest.mark.perf

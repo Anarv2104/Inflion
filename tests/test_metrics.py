@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from traceiq.metrics import (
+from inflion.metrics import (
     BASELINE_FLOOR,
     IQX_CAP,
     MIN_BASELINE_SAMPLES,

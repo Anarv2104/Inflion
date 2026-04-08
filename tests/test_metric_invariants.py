@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from traceiq.metrics import (
+from inflion.metrics import (
     IQX_CAP,
     compute_drift_l2,
     compute_IQx,

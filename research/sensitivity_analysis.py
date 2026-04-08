@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sensitivity analysis for TraceIQ parameters.
+"""Sensitivity analysis for Inflion parameters.
 
 This script analyzes sensitivity to:
 - epsilon (numerical stability constant)
@@ -14,7 +14,7 @@ from pathlib import Path
 
 import numpy as np
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 
 def generate_interaction(drift_type: str = "normal") -> tuple[str, str]:

@@ -19,8 +19,8 @@ import json
 from pathlib import Path
 from typing import Any
 
-from traceiq.metrics import compute_attack_surface
-from traceiq.models import AgentCapabilities
+from inflion.metrics import compute_attack_surface
+from inflion.models import AgentCapabilities
 
 # Default weights based on security risk assessment
 DEFAULT_CAPABILITY_WEIGHTS: dict[str, float] = {

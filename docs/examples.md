@@ -1,13 +1,13 @@
 # Examples
 
-Real-world usage patterns for TraceIQ.
+Real-world usage patterns for Inflion.
 
 ## Example 1: Tracking a Multi-Agent Debate
 
 Track how agents influence each other during a policy debate.
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 config = TrackerConfig(
     storage_backend="memory",
@@ -57,7 +57,7 @@ for r in results:
 Track how a specific idea spreads through a network.
 
 ```python
-from traceiq import InfluenceTracker
+from inflion import InfluenceTracker
 
 tracker = InfluenceTracker(use_mock_embedder=False)
 
@@ -104,7 +104,7 @@ print(f"Influence chains: {summary.influence_chains}")
 Monitor agent interactions in real-time.
 
 ```python
-from traceiq import InfluenceTracker
+from inflion import InfluenceTracker
 import time
 
 tracker = InfluenceTracker(use_mock_embedder=True)
@@ -152,7 +152,7 @@ print(f"Potential manipulation source: {summary.top_influencers[0][0]}")
 Store data persistently for long-running analysis.
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 from pathlib import Path
 
 db_path = Path("agent_monitoring.db")
@@ -188,8 +188,8 @@ with InfluenceTracker(config=config, use_mock_embedder=True) as tracker:
 Generate comprehensive reports with visualizations.
 
 ```python
-from traceiq import InfluenceTracker
-from traceiq.plotting import (
+from inflion import InfluenceTracker
+from inflion.plotting import (
     plot_drift_over_time,
     plot_influence_heatmap,
     plot_top_influencers,
@@ -241,7 +241,7 @@ print(f"Report generated in {output_dir}/")
 Adjust thresholds based on your domain.
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 # Sensitive domain: lower thresholds
 sensitive_config = TrackerConfig(

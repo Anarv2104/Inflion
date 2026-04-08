@@ -148,7 +148,7 @@ jobs:
       - name: Verify wheel
         run: |
           pip install dist/*.whl --timeout 120 --retries 5
-          python -c "import traceiq; print(f'TraceIQ v{traceiq.__version__} import successful!')"
+          python -c "import inflion; print(f'Inflion v{inflion.__version__} import successful!')"
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

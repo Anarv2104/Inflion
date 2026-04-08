@@ -3,14 +3,14 @@ requires = ["hatchling>=1.21,<1.24"]
 build-backend = "hatchling.build"
 
 [project]
-name = "traceiq"
-version = "0.5.2"
-description = "Measure AI-to-AI influence in multi-agent systems"
+name = "inflion"
+version = "0.1.0"
+description = "Observability and influence tracing infrastructure for multi-agent AI systems."
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
-    { name = "TraceIQ Contributors" }
+    { name = "Inflion Contributors" }
 ]
 keywords = ["ai", "agents", "influence", "tracking", "embeddings", "ieee", "research", "security"]
 classifiers = [
@@ -48,8 +48,8 @@ research = [
     "matplotlib>=3.7",
 ]
 all = [
-    "traceiq[embedding]",
-    "traceiq[research]",
+    "inflion[embedding]",
+    "inflion[research]",
 ]
 dev = [
     "pytest>=7.0",
@@ -61,15 +61,15 @@ docs = [
 ]
 
 [project.scripts]
-traceiq = "traceiq.cli:cli"
+inflion = "inflion.cli:cli"
 
 [project.urls]
-Homepage = "https://github.com/Anarv2104/TraceIQ"
-Documentation = "https://github.com/Anarv2104/TraceIQ#readme"
-Repository = "https://github.com/Anarv2104/TraceIQ"
+Homepage = "https://github.com/Anarv2104/Inflion"
+Documentation = "https://github.com/Anarv2104/Inflion#readme"
+Repository = "https://github.com/Anarv2104/Inflion"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/traceiq"]
+packages = ["src/inflion"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

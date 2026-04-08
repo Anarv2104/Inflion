@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test TraceIQ with real sentence-transformers embeddings on realistic agent conversations.
+Test Inflion with real sentence-transformers embeddings on realistic agent conversations.
 
 This demonstrates how influence spreads when agents discuss and adopt ideas from each other.
 """
@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -19,7 +19,7 @@ def test_real_agent_conversations():
     """Test with realistic multi-agent conversations using real embeddings."""
 
     print("=" * 70)
-    print("TraceIQ: Real Agent Conversation Test")
+    print("Inflion: Real Agent Conversation Test")
     print("=" * 70)
     print()
 
@@ -189,7 +189,7 @@ def test_real_agent_conversations():
 
     # Generate visualizations
     try:
-        from traceiq.plotting import (
+        from inflion.plotting import (
             plot_drift_over_time,
             plot_influence_heatmap,
             plot_influence_network,
@@ -231,7 +231,7 @@ def test_idea_adoption():
     """Test tracking how a specific idea spreads through agents."""
 
     print("\n" + "=" * 70)
-    print("TraceIQ: Idea Adoption Tracking Test")
+    print("Inflion: Idea Adoption Tracking Test")
     print("=" * 70)
     print()
 

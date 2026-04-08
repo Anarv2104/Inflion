@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from traceiq.models import InteractionEvent, ScoreResult
+    from inflion.models import InteractionEvent, ScoreResult
 
 
 def export_events_csv(

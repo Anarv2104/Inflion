@@ -8,9 +8,9 @@ from typing import TYPE_CHECKING
 import pytest
 
 if TYPE_CHECKING:
-    from traceiq.models import InteractionEvent, ScoreResult
+    from inflion.models import InteractionEvent, ScoreResult
 
-from traceiq.graph import InfluenceGraph
+from inflion.graph import InfluenceGraph
 
 # Check if matplotlib is available
 try:
@@ -33,7 +33,7 @@ class TestPlotting:
         tmp_path: Path,
     ) -> None:
         """Test drift over time plot generation."""
-        from traceiq.plotting import plot_drift_over_time
+        from inflion.plotting import plot_drift_over_time
 
         output_path = tmp_path / "drift.png"
         plot_drift_over_time(sample_events, sample_scores, output_path=output_path)
@@ -48,7 +48,7 @@ class TestPlotting:
         tmp_path: Path,
     ) -> None:
         """Test influence heatmap generation."""
-        from traceiq.plotting import plot_influence_heatmap
+        from inflion.plotting import plot_influence_heatmap
 
         graph = InfluenceGraph()
         graph.build_from_events(sample_events, sample_scores)
@@ -66,7 +66,7 @@ class TestPlotting:
         tmp_path: Path,
     ) -> None:
         """Test top influencers bar chart generation."""
-        from traceiq.plotting import plot_top_influencers
+        from inflion.plotting import plot_top_influencers
 
         graph = InfluenceGraph()
         graph.build_from_events(sample_events, sample_scores)
@@ -84,7 +84,7 @@ class TestPlotting:
         tmp_path: Path,
     ) -> None:
         """Test top susceptible agents chart generation."""
-        from traceiq.plotting import plot_top_susceptible
+        from inflion.plotting import plot_top_susceptible
 
         graph = InfluenceGraph()
         graph.build_from_events(sample_events, sample_scores)
@@ -102,7 +102,7 @@ class TestPlotting:
         tmp_path: Path,
     ) -> None:
         """Test influence network graph generation."""
-        from traceiq.plotting import plot_influence_network
+        from inflion.plotting import plot_influence_network
 
         graph = InfluenceGraph()
         graph.build_from_events(sample_events, sample_scores)
@@ -115,7 +115,7 @@ class TestPlotting:
 
     def test_plot_empty_data(self, tmp_path: Path) -> None:
         """Test plotting with empty data doesn't crash."""
-        from traceiq.plotting import plot_influence_heatmap, plot_top_influencers
+        from inflion.plotting import plot_influence_heatmap, plot_top_influencers
 
         graph = InfluenceGraph()
 
@@ -131,7 +131,7 @@ class TestPlottingImportError:
         """Test that _check_matplotlib raises helpful error."""
         # We can't truly test missing matplotlib if it's installed,
         # but we can verify the error message format
-        from traceiq.plotting import _check_matplotlib
+        from inflion.plotting import _check_matplotlib
 
         # If matplotlib is available, this should not raise
         if HAS_MATPLOTLIB:

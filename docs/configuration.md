@@ -1,18 +1,18 @@
 # Configuration Reference
 
-This document provides a complete reference for TraceIQ's configuration options.
+This document provides a complete reference for Inflion's configuration options.
 
 ## TrackerConfig
 
 The `TrackerConfig` class controls all aspects of tracker behavior.
 
 ```python
-from traceiq import TrackerConfig
+from inflion import TrackerConfig
 
 config = TrackerConfig(
     # Storage
     storage_backend="sqlite",
-    storage_path="traceiq.db",
+    storage_path="inflion.db",
 
     # Embedding
     embedding_model="all-MiniLM-L6-v2",
@@ -105,7 +105,7 @@ For production monitoring with policy enforcement:
 ```python
 config = TrackerConfig(
     storage_backend="sqlite",
-    storage_path="/var/lib/traceiq/prod.db",
+    storage_path="/var/lib/inflion/prod.db",
     enable_risk_scoring=True,
     enable_policy=True,
     anomaly_threshold=2.5,

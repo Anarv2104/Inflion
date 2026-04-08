@@ -1,4 +1,4 @@
-"""Shared utilities for TraceIQ research experiments.
+"""Shared utilities for Inflion research experiments.
 
 This module provides deterministic agents and utilities for reproducible experiments.
 """
@@ -13,7 +13,7 @@ from uuid import uuid4
 
 import numpy as np
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 # Constants
 RANDOM_SEED = 42

@@ -1,4 +1,4 @@
-"""Topology generators for TraceIQ research experiments.
+"""Topology generators for Inflion research experiments.
 
 This module provides functions to generate different network topologies
 for studying influence propagation patterns in multi-agent systems.
@@ -83,7 +83,7 @@ def ring_topology(n: int) -> TopologyConfig:
     """Generate a ring (cycle) topology: A → B → C → A
 
     In a ring topology, influence can circulate indefinitely.
-    This tests whether TraceIQ correctly handles cycles and
+    This tests whether Inflion correctly handles cycles and
     computes meaningful propagation risk.
 
     Args:
@@ -116,7 +116,7 @@ def feedback_topology(n: int) -> TopologyConfig:
     """Generate a chain with feedback edge: A → B → C plus C → B
 
     Feedback edges create local cycles that can amplify influence.
-    This tests TraceIQ's handling of partial feedback loops.
+    This tests Inflion's handling of partial feedback loops.
 
     Args:
         n: Number of agents (minimum 3)

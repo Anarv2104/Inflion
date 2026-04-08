@@ -1,8 +1,8 @@
-"""Statistical analysis utilities for TraceIQ research experiments.
+"""Statistical analysis utilities for Inflion research experiments.
 
 This module provides functions for statistical hypothesis testing, confidence
 interval computation, and effect size calculation to support rigorous
-scientific validation of TraceIQ metrics.
+scientific validation of Inflion metrics.
 
 Functions:
     - confidence_interval: Compute mean and t-distribution CI

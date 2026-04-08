@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate all plots for TraceIQ experiments with statistical annotations.
+"""Generate all plots for Inflion experiments with statistical annotations.
 
 This script reads CSV results from experiments and generates visualizations
 with confidence intervals, p-values, and effect sizes for scientific rigor.

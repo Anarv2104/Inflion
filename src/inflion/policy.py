@@ -10,11 +10,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Literal
 
-from traceiq.weights import clamp_weight
+from inflion.weights import clamp_weight
 
 if TYPE_CHECKING:
-    from traceiq.risk import RiskResult
-    from traceiq.schema import TraceIQEvent
+    from inflion.risk import RiskResult
+    from inflion.schema import InflionEvent
 
 
 @dataclass
@@ -145,9 +145,9 @@ class PolicyEngine:
 
     def apply_policy(
         self,
-        event: TraceIQEvent,
+        event: InflionEvent,
         risk_result: RiskResult,
-    ) -> TraceIQEvent:
+    ) -> InflionEvent:
         """Apply policy to an event based on risk assessment.
 
         This method:
@@ -160,7 +160,7 @@ class PolicyEngine:
             risk_result: Risk computation result
 
         Returns:
-            Updated TraceIQEvent with policy_action, policy_reason, and event_type
+            Updated InflionEvent with policy_action, policy_reason, and event_type
         """
         # Get policy decision
         decision = self.evaluate_risk(risk_result)
@@ -363,7 +363,7 @@ def should_block_event(
         True if event should be blocked
 
     Examples:
-        >>> from traceiq.risk import RiskResult
+        >>> from inflion.risk import RiskResult
         >>> risk = RiskResult(risk_score=0.9, risk_level="critical", components={})
         >>> should_block_event(risk)
         True

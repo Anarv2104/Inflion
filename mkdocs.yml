@@ -1,9 +1,9 @@
-site_name: TraceIQ Documentation
-site_description: Measure AI-to-AI influence in multi-agent systems
-site_url: https://Anarv2104.github.io/TraceIQ
+site_name: Inflion Documentation
+site_description: Observability and influence tracing infrastructure for multi-agent AI systems
+site_url: https://Anarv2104.github.io/Inflion
 
-repo_name: Anarv2104/TraceIQ
-repo_url: https://github.com/Anarv2104/TraceIQ
+repo_name: Anarv2104/Inflion
+repo_url: https://github.com/Anarv2104/Inflion
 
 theme:
   name: material
@@ -57,6 +57,6 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Anarv2104/TraceIQ
+      link: https://github.com/Anarv2104/Inflion
     - icon: fontawesome/brands/python
-      link: https://pypi.org/project/traceiq/
+      link: https://pypi.org/project/inflion/

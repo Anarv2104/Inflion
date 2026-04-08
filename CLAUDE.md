@@ -1,13 +1,13 @@
-# CLAUDE.md - TraceIQ Project Context
+# CLAUDE.md - Inflion Project Context
 
 ## Project Overview
 
-**TraceIQ** is a Python library for measuring AI-to-AI influence in multi-agent systems. It tracks how one agent's outputs influence another agent's behavior using semantic embeddings and provides tools for analysis, visualization, and security monitoring.
+**Inflion** is a Python library for measuring AI-to-AI influence in multi-agent systems. It tracks how one agent's outputs influence another agent's behavior using semantic embeddings and provides tools for analysis, visualization, and security monitoring.
 
 ## Repository
 
-- **GitHub**: https://github.com/Anarv2104/TraceIQ
-- **PyPI**: traceiq (pending publication)
+- **GitHub**: https://github.com/Anarv2104/Inflion
+- **PyPI**: inflion (pending publication)
 - **Version**: 0.3.0
 
 ## Project Status: COMPLETE
@@ -33,8 +33,8 @@
 ## Architecture
 
 ```
-TraceIQ/
-├── src/traceiq/
+Inflion/
+├── src/inflion/
 │   ├── __init__.py          # Public API exports
 │   ├── models.py             # Pydantic models (extended with IEEE fields)
 │   ├── tracker.py            # Main InfluenceTracker class
@@ -136,18 +136,18 @@ python -m build
 python research/synthetic_simulation.py
 
 # CLI commands (v0.3.0)
-traceiq --help
-traceiq propagation-risk --db traceiq.db
-traceiq alerts --db traceiq.db --threshold 2.0
-traceiq risky-agents --db traceiq.db
-traceiq capabilities show
-traceiq plot iqx-heatmap --db traceiq.db -o heatmap.png
+inflion --help
+inflion propagation-risk --db inflion.db
+inflion alerts --db inflion.db --threshold 2.0
+inflion risky-agents --db inflion.db
+inflion capabilities show
+inflion plot iqx-heatmap --db inflion.db -o heatmap.png
 ```
 
 ## Example Usage (v0.3.0)
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 # Configure with IEEE metrics
 config = TrackerConfig(
@@ -236,4 +236,4 @@ python research/sensitivity_analysis.py
 
 ## Contact
 
-Repository: https://github.com/Anarv2104/TraceIQ
+Repository: https://github.com/Anarv2104/Inflion

@@ -5,8 +5,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from traceiq import InfluenceTracker, TrackerConfig
-from traceiq.metrics import compute_drift_l2, compute_IQx, compute_propagation_risk
+from inflion import InfluenceTracker, TrackerConfig
+from inflion.metrics import compute_drift_l2, compute_IQx, compute_propagation_risk
 
 
 class TestGoldenMetrics:
@@ -231,7 +231,7 @@ class TestGoldenZScore:
 
     def test_z_score_at_mean_is_zero(self) -> None:
         """Z-score at the mean should be ~0."""
-        from traceiq.metrics import compute_z_score_robust
+        from inflion.metrics import compute_z_score_robust
 
         values = [1.0, 2.0, 3.0, 4.0, 5.0]
         median = 3.0  # Median of [1,2,3,4,5]
@@ -241,7 +241,7 @@ class TestGoldenZScore:
 
     def test_z_score_above_mean_positive(self) -> None:
         """Z-score above mean should be positive."""
-        from traceiq.metrics import compute_z_score_robust
+        from inflion.metrics import compute_z_score_robust
 
         values = [1.0, 2.0, 3.0, 4.0, 5.0]
 
@@ -250,7 +250,7 @@ class TestGoldenZScore:
 
     def test_z_score_below_mean_negative(self) -> None:
         """Z-score below mean should be negative."""
-        from traceiq.metrics import compute_z_score_robust
+        from inflion.metrics import compute_z_score_robust
 
         values = [1.0, 2.0, 3.0, 4.0, 5.0]
 
@@ -259,7 +259,7 @@ class TestGoldenZScore:
 
     def test_z_score_requires_min_samples(self) -> None:
         """Z-score with insufficient samples should be 0."""
-        from traceiq.metrics import compute_z_score_robust
+        from inflion.metrics import compute_z_score_robust
 
         values = [1.0]  # Only 1 sample
 

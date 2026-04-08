@@ -2,7 +2,7 @@
 
 import pytest
 
-from traceiq.validity import (
+from inflion.validity import (
     DEFAULT_BASELINE_K,
     ValidityResult,
     check_validity,

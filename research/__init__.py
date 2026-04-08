@@ -1,4 +1,4 @@
-"""Research scripts for TraceIQ IEEE paper experiments."""
+"""Research scripts for Inflion IEEE paper experiments."""
 
 __all__ = [
     "run_synthetic_simulation",

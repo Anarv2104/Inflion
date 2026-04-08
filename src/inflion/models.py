@@ -1,4 +1,4 @@
-"""Pydantic models for TraceIQ."""
+"""Pydantic models for Inflion."""
 
 from __future__ import annotations
 

@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from traceiq.risk import (
+from inflion.risk import (
     RiskThresholds,
     assign_risk_level,
     calibrate_thresholds,

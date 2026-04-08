@@ -1,9 +1,9 @@
-"""TraceIQ: Measure AI-to-AI influence in multi-agent systems."""
+"""Inflion: Observability and influence tracing infrastructure for multi-agent AI systems."""
 
 from importlib.metadata import version as _get_version
 
-from traceiq.capabilities import CapabilityRegistry
-from traceiq.metrics import (
+from inflion.capabilities import CapabilityRegistry
+from inflion.metrics import (
     compute_accumulated_influence,
     compute_attack_surface,
     compute_drift_l2,
@@ -12,7 +12,7 @@ from traceiq.metrics import (
     compute_RWI,
     compute_z_score,
 )
-from traceiq.models import (
+from inflion.models import (
     AgentCapabilities,
     InteractionEvent,
     PropagationRiskResult,
@@ -20,19 +20,19 @@ from traceiq.models import (
     SummaryReport,
     TrackerConfig,
 )
-from traceiq.policy import PolicyEngine
-from traceiq.risk import (
+from inflion.policy import PolicyEngine
+from inflion.risk import (
     RiskResult,
     RiskThresholds,
     assign_risk_level,
     calibrate_thresholds,
     compute_risk_score,
 )
-from traceiq.schema import TraceIQEvent, compute_state_quality
-from traceiq.tracker import InfluenceTracker
-from traceiq.validity import ValidityResult, check_validity
+from inflion.schema import InflionEvent, compute_state_quality
+from inflion.tracker import InfluenceTracker
+from inflion.validity import ValidityResult, check_validity
 
-__version__ = _get_version("traceiq")
+__version__ = _get_version("inflion")
 
 __all__ = [
     # Core classes
@@ -46,7 +46,7 @@ __all__ = [
     "AgentCapabilities",
     "PropagationRiskResult",
     # Extended schema (v0.4.0)
-    "TraceIQEvent",
+    "InflionEvent",
     "compute_state_quality",
     # Validity (v0.4.0)
     "ValidityResult",

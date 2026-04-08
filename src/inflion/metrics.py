@@ -1,7 +1,7 @@
 """Core mathematical metrics for IEEE research framework.
 
 This module implements the mathematical formulas for influence quantification
-as described in the TraceIQ IEEE research paper.
+as described in the Inflion IEEE research paper.
 
 Metrics:
     - Drift (L2): ||s_j(t+) - s_j(t-)||_2
@@ -257,7 +257,7 @@ def compute_z_score_robust(
     The constant 0.6745 makes MAD consistent with std for normal distribution.
     This is more robust to outliers than mean/std based Z-score.
 
-    Note: This is the canonical Z-score computation used throughout TraceIQ.
+    Note: This is the canonical Z-score computation used throughout Inflion.
     The ScoreResult.Z_score field and tracker result "robust_z" key both
     contain values computed by this function. The dual naming exists for
     backward compatibility (Z_score) while signaling the recommended

@@ -1,6 +1,6 @@
-"""Extended event schema for production-grade TraceIQ.
+"""Extended event schema for production-grade Inflion.
 
-This module provides the TraceIQEvent model which extends the basic InteractionEvent
+This module provides the InflionEvent model which extends the basic InteractionEvent
 with additional fields for run tracking, state quality assessment, and mitigation policies.
 """
 
@@ -14,7 +14,7 @@ from uuid import uuid4
 from pydantic import BaseModel, Field
 
 
-class TraceIQEvent(BaseModel):
+class InflionEvent(BaseModel):
     """Extended event model for production influence tracking.
 
     This model captures full context for each interaction including:
@@ -111,14 +111,14 @@ class TraceIQEvent(BaseModel):
         return self.model_dump_json()
 
     @classmethod
-    def from_jsonl(cls, line: str) -> TraceIQEvent:
+    def from_jsonl(cls, line: str) -> InflionEvent:
         """Deserialize event from JSONL format.
 
         Args:
             line: JSON string representation of an event
 
         Returns:
-            TraceIQEvent instance
+            InflionEvent instance
         """
         data = json.loads(line)
         return cls(**data)
@@ -128,7 +128,7 @@ class TraceIQEvent(BaseModel):
         action: Literal["allow", "verify", "quarantine", "block"],
         reason: str,
         event_type: Literal["attempted", "applied", "blocked"] | None = None,
-    ) -> TraceIQEvent:
+    ) -> InflionEvent:
         """Create a copy with policy information applied.
 
         Args:
@@ -137,7 +137,7 @@ class TraceIQEvent(BaseModel):
             event_type: Override event type (auto-set based on action if None)
 
         Returns:
-            New TraceIQEvent with policy fields set
+            New InflionEvent with policy fields set
         """
         if event_type is None:
             # Auto-determine event_type from action

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from traceiq.capabilities import (
+from inflion.capabilities import (
     DEFAULT_CAPABILITY_WEIGHTS,
     CapabilityRegistry,
 )

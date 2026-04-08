@@ -36,8 +36,8 @@ jobs:
 
       - name: Lint check
         run: |
-          ruff check src/traceiq tests experiments/topologies.py experiments/exp_*.py
-          ruff format --check src/traceiq tests experiments/topologies.py experiments/exp_*.py
+          ruff check src/inflion tests experiments/topologies.py experiments/exp_*.py
+          ruff format --check src/inflion tests experiments/topologies.py experiments/exp_*.py
 
       - name: Run smoke validation
         run: |

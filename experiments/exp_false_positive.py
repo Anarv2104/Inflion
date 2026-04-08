@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Experiment 2: False Positive Control.
 
-Proves TraceIQ doesn't hallucinate influence under independent/noise interactions.
+Proves Inflion doesn't hallucinate influence under independent/noise interactions.
 
 Setup:
     - Agents exchange random/noise tokens with no shared signal

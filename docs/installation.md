@@ -10,19 +10,19 @@
 Install the core package from PyPI:
 
 ```bash
-pip install traceiq
+pip install inflion
 ```
 
 ## Installation with Extras
 
-TraceIQ has optional dependencies for different features:
+Inflion has optional dependencies for different features:
 
 ### Plotting Support
 
 For visualization features (heatmaps, network graphs, charts):
 
 ```bash
-pip install traceiq[plot]
+pip install inflion[plot]
 ```
 
 ### Embedding Support
@@ -30,7 +30,7 @@ pip install traceiq[plot]
 For real semantic embeddings using sentence-transformers:
 
 ```bash
-pip install traceiq[embedding]
+pip install inflion[embedding]
 ```
 
 ### Full Installation
@@ -38,16 +38,16 @@ pip install traceiq[embedding]
 Install everything:
 
 ```bash
-pip install traceiq[all]
+pip install inflion[all]
 ```
 
 ## Development Installation
 
-For contributing to TraceIQ:
+For contributing to Inflion:
 
 ```bash
-git clone https://github.com/Anarv2104/TraceIQ.git
-cd traceiq
+git clone https://github.com/Anarv2104/Inflion.git
+cd inflion
 pip install -e ".[all,dev]"
 ```
 
@@ -56,9 +56,9 @@ pip install -e ".[all,dev]"
 Test your installation:
 
 ```python
-from traceiq import InfluenceTracker, __version__
+from inflion import InfluenceTracker, __version__
 
-print(f"TraceIQ version: {__version__}")
+print(f"Inflion version: {__version__}")
 
 # Quick test
 tracker = InfluenceTracker(use_mock_embedder=True)
@@ -74,7 +74,7 @@ print(f"Installation working! Event tracked: {result['event_id']}")
 Or via CLI:
 
 ```bash
-traceiq --version
+inflion --version
 ```
 
 ## Troubleshooting

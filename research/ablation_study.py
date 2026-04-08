@@ -14,7 +14,7 @@ from __future__ import annotations
 import random
 from pathlib import Path
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 
 def generate_content(drift_level: str = "normal") -> str:

@@ -8,8 +8,8 @@ from uuid import uuid4
 
 import pytest
 
-from traceiq.models import InteractionEvent, ScoreResult
-from traceiq.storage import SQLiteStorage
+from inflion.models import InteractionEvent, ScoreResult
+from inflion.storage import SQLiteStorage
 
 
 class TestSQLiteStorage:

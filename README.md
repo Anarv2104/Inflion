@@ -1,21 +1,23 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/TraceIQ-AI%20Influence%20Measurement-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyek0xMiAyMGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+" alt="TraceIQ">
+  <img src="https://img.shields.io/badge/Inflion-AI%20Influence%20Measurement-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyek0xMiAyMGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+" alt="Inflion">
 </p>
 
-<h1 align="center">TraceIQ</h1>
+<h1 align="center">Inflion</h1>
+
+> **Note:** This project was previously released as **TraceIQ**. It has been renamed to **Inflion** starting with `v0.1.0`. The API and behavior are unchanged.
 
 <p align="center">
   <strong>
-TraceIQ is a Python library for measuring cross-agent influence in multi-agent AI systems,
+Inflion is a Python library for measuring cross-agent influence in multi-agent AI systems,
 providing reproducible metrics for semantic drift, propagation risk, and reasoning stability.
 </strong>
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/traceiq/"><img src="https://img.shields.io/pypi/v/traceiq.svg" alt="PyPI version"></a>
-  <a href="https://pypi.org/project/traceiq/"><img src="https://img.shields.io/pypi/pyversions/traceiq.svg" alt="Python versions"></a>
-  <a href="https://pypi.org/project/traceiq/"><img src="https://img.shields.io/pypi/l/traceiq.svg" alt="License"></a>
-  <a href="https://pepy.tech/project/traceiq"><img src="https://static.pepy.tech/badge/traceiq" alt="Downloads"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/v/inflion.svg" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/pyversions/inflion.svg" alt="Python versions"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/l/inflion.svg" alt="License"></a>
+  <a href="https://pepy.tech/project/inflion"><img src="https://static.pepy.tech/badge/inflion" alt="Downloads"></a>
 </p>
 
 <p align="center">
@@ -39,13 +41,13 @@ Yet we lack scientific tools to answer fundamental questions:
 > - **When does collaboration become instability?**
 > - **How can influence be measured reproducibly and rigorously?**
 
-**TraceIQ** introduces a formal measurement framework for studying influence propagation in autonomous multi-agent AI systems.
+**Inflion** introduces a formal measurement framework for studying influence propagation in autonomous multi-agent AI systems.
 
 ---
 
 ## Scientific Contributions
 
-TraceIQ provides three core measurement primitives:
+Inflion provides three core measurement primitives:
 
 ### 1. Influence Quotient (IQx)
 
@@ -69,7 +71,7 @@ PR provides early detection of unstable influence propagation and cascading reas
 
 ### 3. Reproducible Influence Experiments
 
-TraceIQ includes CI-safe experimental pipelines evaluating:
+Inflion includes CI-safe experimental pipelines evaluating:
 
 - ✓ Hint injection and misinformation propagation
 - ✓ Influence stability across agent chains
@@ -80,7 +82,7 @@ These experiments support ongoing research into multi-agent AI safety and **Cont
 
 ---
 
-## Where TraceIQ Fits in AI Research
+## Where Inflion Fits in AI Research
 
 Modern AI tooling focuses on different layers of the stack:
 
@@ -89,9 +91,9 @@ Modern AI tooling focuses on different layers of the stack:
 | **TensorBoard** | Model training metrics |
 | **Weights & Biases** | Experiment tracking |
 | **LangSmith / Prompt tools** | Prompt execution traces |
-| **TraceIQ** | Cross-agent influence and reasoning propagation |
+| **Inflion** | Cross-agent influence and reasoning propagation |
 
-TraceIQ introduces a missing instrumentation layer:
+Inflion introduces a missing instrumentation layer:
 **measurement of cognitive influence between autonomous AI agents.**
 
 As multi-agent systems become standard in RAG, planning, robotics, and orchestration,
@@ -99,7 +101,7 @@ understanding *how agents influence each other* becomes as critical as measuring
 
 ---
 
-## Why TraceIQ Exists
+## Why Inflion Exists
 
 Autonomous AI systems are evolving from isolated models into **collaborative agent networks**.
 
@@ -112,21 +114,21 @@ However, we currently lack standardized methods to measure:
 | **Stability** | Is collaborative reasoning stable or chaotic? |
 | **Safety risks** | What are the emergent risks in multi-agent systems? |
 
-TraceIQ was built as a **scientific instrument** for studying emergent behavior in distributed intelligence.
+Inflion was built as a **scientific instrument** for studying emergent behavior in distributed intelligence.
 
-> **TraceIQ is not a dashboard. It is not a monitoring SaaS.**
+> **Inflion is not a dashboard. It is not a monitoring SaaS.**
 >
-> TraceIQ is **measurement infrastructure** for multi-agent cognition research.
+> Inflion is **measurement infrastructure** for multi-agent cognition research.
 
 ---
 
 ## Research Vision
 
-TraceIQ is measurement infrastructure for multi-agent AI systems.
+Inflion is measurement infrastructure for multi-agent AI systems.
 
 As AI shifts from isolated models to collaborative agent networks, system behavior emerges from interactions between models—not from a single model alone. While we can measure accuracy, latency, and loss, we currently lack tools to quantify how reasoning propagates across agents.
 
-TraceIQ provides reproducible metrics and structured tracking for cross-agent influence, reasoning drift, and propagation dynamics. The goal is not monitoring dashboards, but scientific instrumentation for studying distributed AI cognition.
+Inflion provides reproducible metrics and structured tracking for cross-agent influence, reasoning drift, and propagation dynamics. The goal is not monitoring dashboards, but scientific instrumentation for studying distributed AI cognition.
 
 If collaborative AI becomes the dominant computing paradigm, measuring influence between agents will be as fundamental as measuring model performance.
 
@@ -151,32 +153,32 @@ If collaborative AI becomes the dominant computing paradigm, measuring influence
 **Core library** (lightweight, no heavy ML dependencies):
 
 ```bash
-pip install traceiq
+pip install inflion
 ```
 
 **With real embedding models:**
 
 ```bash
-pip install "traceiq[embedding]"
+pip install "inflion[embedding]"
 ```
 
 **With research plotting tools:**
 
 ```bash
-pip install "traceiq[research]"
+pip install "inflion[research]"
 ```
 
 **Full installation:**
 
 ```bash
-pip install "traceiq[embedding,research]"
+pip install "inflion[embedding,research]"
 ```
 
 ---
 
 ## Real-World Use Cases
 
-TraceIQ is designed for real multi-agent AI systems:
+Inflion is designed for real multi-agent AI systems:
 
 - **Evaluate RAG hallucination propagation**
   Measure whether incorrect retrieval contaminates downstream reasoning.
@@ -193,14 +195,14 @@ TraceIQ is designed for real multi-agent AI systems:
 - **Research on Contagious Intelligence**
   Quantify cognitive transfer between AI systems in controlled experiments.
 
-TraceIQ acts as a **measurement microscope** for studying distributed AI cognition.
+Inflion acts as a **measurement microscope** for studying distributed AI cognition.
 
 ---
 
 ## Quick Example
 
 ```python
-from traceiq import InfluenceTracker
+from inflion import InfluenceTracker
 
 tracker = InfluenceTracker(use_mock_embedder=True)
 
@@ -227,7 +229,7 @@ Alert: False
 
 ---
 
-## What TraceIQ Outputs
+## What Inflion Outputs
 
 Each tracked interaction returns structured metrics you can log, visualize, or audit:
 
@@ -241,7 +243,7 @@ Each tracked interaction returns structured metrics you can log, visualize, or a
 
 ## Research Applications
 
-TraceIQ has been evaluated on synthetic multi-agent benchmarks
+Inflion has been evaluated on synthetic multi-agent benchmarks
 and integrated into experimental LLM pipelines involving chained,
 retrieval-augmented, and tool-using agents.
 
@@ -260,7 +262,7 @@ that generate structured `summary.json` artifacts for verification.
 
 ## Integration Patterns
 
-TraceIQ works with common agent architectures:
+Inflion works with common agent architectures:
 
 | Pattern | Description |
 |---------|-------------|
@@ -272,7 +274,7 @@ TraceIQ works with common agent architectures:
 
 ---
 
-## What TraceIQ Is NOT
+## What Inflion Is NOT
 
 | Limitation | Explanation |
 |------------|-------------|
@@ -286,7 +288,7 @@ TraceIQ works with common agent architectures:
 
 ## Research Context
 
-TraceIQ supports research into:
+Inflion supports research into:
 
 - 🔬 AI-to-AI influence modeling
 - 🧬 Contagious Intelligence hypothesis
@@ -303,21 +305,21 @@ are available in the project documentation.
 
 | Document | Description |
 |----------|-------------|
-| [Metrics](https://github.com/Anarv2104/TraceIQ/blob/main/docs/metrics.md) | Metric definitions and formulas |
-| [Integration](https://github.com/Anarv2104/TraceIQ/blob/main/docs/integration.md) | Integration patterns |
-| [CLI Reference](https://github.com/Anarv2104/TraceIQ/blob/main/docs/cli.md) | Command-line interface |
-| [Configuration](https://github.com/Anarv2104/TraceIQ/blob/main/docs/configuration.md) | TrackerConfig options |
-| [Architecture](https://github.com/Anarv2104/TraceIQ/blob/main/docs/architecture.md) | System design |
-| [Theory](https://github.com/Anarv2104/TraceIQ/blob/main/docs/THEORY.md) | Mathematical foundations |
-| [Experiments](https://github.com/Anarv2104/TraceIQ/tree/main/experiments) | Research testbed |
+| [Metrics](https://github.com/Anarv2104/Inflion/blob/main/docs/metrics.md) | Metric definitions and formulas |
+| [Integration](https://github.com/Anarv2104/Inflion/blob/main/docs/integration.md) | Integration patterns |
+| [CLI Reference](https://github.com/Anarv2104/Inflion/blob/main/docs/cli.md) | Command-line interface |
+| [Configuration](https://github.com/Anarv2104/Inflion/blob/main/docs/configuration.md) | TrackerConfig options |
+| [Architecture](https://github.com/Anarv2104/Inflion/blob/main/docs/architecture.md) | System design |
+| [Theory](https://github.com/Anarv2104/Inflion/blob/main/docs/THEORY.md) | Mathematical foundations |
+| [Experiments](https://github.com/Anarv2104/Inflion/tree/main/experiments) | Research testbed |
 
-**CLI Help:** `traceiq --help`
+**CLI Help:** `inflion --help`
 
 ---
 
 ## Reproducibility & CI
 
-TraceIQ experiments are **CI-safe**:
+Inflion experiments are **CI-safe**:
 
 - ✅ Quick mode never hard-fails CI
 - ✅ Proof mode enforces strict statistical validation
@@ -331,7 +333,7 @@ This ensures reproducible research pipelines.
 ## Contributing
 
 Contributions welcome! See
-[CONTRIBUTING.md](https://github.com/Anarv2104/TraceIQ/blob/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/Anarv2104/Inflion/blob/main/CONTRIBUTING.md)
 
 ```bash
 # 1. Fork the repository
@@ -349,14 +351,14 @@ ruff check src/ tests/
 
 ## Citation
 
-If you use TraceIQ in your research, please cite:
+If you use Inflion in your research, please cite:
 
 ```bibtex
-@software{traceiq,
-  title = {TraceIQ: Measuring AI-to-AI Influence in Multi-Agent Systems},
+@software{inflion,
+  title = {Inflion: Measuring AI-to-AI Influence in Multi-Agent Systems},
   author = {Vasavada, Anarv and Contributors},
   year = {2026},
-  url = {https://github.com/Anarv2104/TraceIQ}
+  url = {https://github.com/Anarv2104/Inflion}
 }
 ```
 
@@ -364,24 +366,24 @@ If you use TraceIQ in your research, please cite:
 
 ## License
 
-TraceIQ is open-source under the MIT License, enabling academic and commercial use with minimal restrictions.
+Inflion is open-source under the MIT License, enabling academic and commercial use with minimal restrictions.
 
 See the full license text at:
-https://github.com/Anarv2104/TraceIQ/blob/main/LICENSE
+https://github.com/Anarv2104/Inflion/blob/main/LICENSE
 
 ---
 
 <p align="center">
-  <a href="https://github.com/Anarv2104/TraceIQ">
+  <a href="https://github.com/Anarv2104/Inflion">
     <img src="https://img.shields.io/badge/GitHub-Source%20Code-24292e?style=for-the-badge&logo=github&logoColor=white">
   </a>
-  <a href="https://pypi.org/project/traceiq/">
+  <a href="https://pypi.org/project/inflion/">
     <img src="https://img.shields.io/badge/PyPI-Install%20Package-3776AB?style=for-the-badge&logo=pypi&logoColor=white">
   </a>
-  <a href="https://github.com/Anarv2104/TraceIQ/tree/main/docs">
+  <a href="https://github.com/Anarv2104/Inflion/tree/main/docs">
     <img src="https://img.shields.io/badge/Docs-Technical%20Documentation-6A0DAD?style=for-the-badge&logo=readthedocs&logoColor=white">
   </a>
-  <a href="https://github.com/Anarv2104/TraceIQ/issues">
+  <a href="https://github.com/Anarv2104/Inflion/issues">
     <img src="https://img.shields.io/badge/Community-Report%20Issues-D73A49?style=for-the-badge&logo=github&logoColor=white">
   </a>
 </p>

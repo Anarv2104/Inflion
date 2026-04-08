@@ -1,6 +1,6 @@
 # Research Experiments
 
-TraceIQ includes a reproducible research testbed in the `experiments/` directory.
+Inflion includes a reproducible research testbed in the `experiments/` directory.
 
 ## Quick Start
 
@@ -26,7 +26,7 @@ python experiments/plot_all.py
 
 ### Experiment 1: Wrong Hint Infection
 
-Tests whether TraceIQ detects influence when an "influencer" agent provides wrong hints to a "solver" agent.
+Tests whether Inflion detects influence when an "influencer" agent provides wrong hints to a "solver" agent.
 
 **Conditions:**
 - A (Baseline): Solver computes independently

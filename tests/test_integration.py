@@ -1,4 +1,4 @@
-"""Integration tests for TraceIQ end-to-end pipeline."""
+"""Integration tests for Inflion end-to-end pipeline."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 pytestmark = pytest.mark.integration
 

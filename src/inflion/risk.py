@@ -20,7 +20,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Literal
 
-from traceiq.weights import alignment_weight, clamp_weight, sigmoid_weight
+from inflion.weights import alignment_weight, clamp_weight, sigmoid_weight
 
 # Default risk thresholds for level classification
 DEFAULT_RISK_THRESHOLDS = (0.2, 0.5, 0.8)

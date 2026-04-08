@@ -36,7 +36,7 @@ from uuid import UUID
 
 import numpy as np
 
-from traceiq.metrics import (
+from inflion.metrics import (
     MIN_BASELINE_SAMPLES,
     compute_drift_l2,
     compute_IQx,
@@ -46,7 +46,7 @@ from traceiq.metrics import (
     rolling_median,
     rolling_std,
 )
-from traceiq.models import ScoreResult
+from inflion.models import ScoreResult
 
 if TYPE_CHECKING:
     from numpy.typing import NDArray

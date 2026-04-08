@@ -2,9 +2,9 @@
 
 import pytest
 
-from traceiq.policy import PolicyDecision, PolicyEngine, TrustState, should_block_event
-from traceiq.risk import RiskResult
-from traceiq.schema import TraceIQEvent
+from inflion.policy import PolicyDecision, PolicyEngine, TrustState, should_block_event
+from inflion.risk import RiskResult
+from inflion.schema import InflionEvent
 
 
 class TestPolicyDecision:
@@ -103,7 +103,7 @@ class TestPolicyEngine:
     def test_apply_policy(self):
         """Test applying policy to an event."""
         engine = PolicyEngine()
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="agent_a",
             receiver_id="agent_b",
@@ -120,7 +120,7 @@ class TestPolicyEngine:
     def test_apply_policy_allow(self):
         """Test applying allow policy."""
         engine = PolicyEngine()
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="agent_a",
             receiver_id="agent_b",
@@ -136,7 +136,7 @@ class TestPolicyEngine:
     def test_trust_decay_on_quarantine(self):
         """Trust decays on quarantine actions."""
         engine = PolicyEngine(enable_trust_decay=True, trust_decay_rate=0.1)
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run",
             sender_id="agent_a",
             receiver_id="agent_b",
@@ -157,7 +157,7 @@ class TestPolicyEngine:
     def test_trust_no_decay_on_allow(self):
         """Trust does not decay on allow actions."""
         engine = PolicyEngine(enable_trust_decay=True)
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run",
             sender_id="agent_a",
             receiver_id="agent_b",
@@ -175,7 +175,7 @@ class TestPolicyEngine:
     def test_trust_decay_disabled(self):
         """Trust decay can be disabled."""
         engine = PolicyEngine(enable_trust_decay=False)
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run",
             sender_id="agent_a",
             receiver_id="agent_b",
@@ -222,7 +222,7 @@ class TestPolicyEngine:
     def test_get_trust_state(self):
         """Test getting full trust state."""
         engine = PolicyEngine()
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run",
             sender_id="agent_a",
             receiver_id="agent_b",
@@ -266,7 +266,7 @@ class TestPolicyEngine:
     def test_violations_tracked(self):
         """Violations are tracked on quarantine/block."""
         engine = PolicyEngine()
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run",
             sender_id="agent_a",
             receiver_id="agent_b",

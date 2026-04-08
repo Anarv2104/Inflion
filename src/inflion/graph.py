@@ -8,13 +8,13 @@ from typing import TYPE_CHECKING
 import networkx as nx
 import numpy as np
 
-from traceiq.metrics import IQX_CAP, build_adjacency_matrix, compute_propagation_risk
-from traceiq.weights import bounded_iqx_weight, confidence_weight
+from inflion.metrics import IQX_CAP, build_adjacency_matrix, compute_propagation_risk
+from inflion.weights import bounded_iqx_weight, confidence_weight
 
 if TYPE_CHECKING:
     from numpy.typing import NDArray
 
-    from traceiq.models import InteractionEvent, PropagationRiskResult, ScoreResult
+    from inflion.models import InteractionEvent, PropagationRiskResult, ScoreResult
 
 
 class InfluenceGraph:
@@ -313,7 +313,7 @@ class InfluenceGraph:
         Returns:
             List of PropagationRiskResult for each window
         """
-        from traceiq.models import PropagationRiskResult
+        from inflion.models import PropagationRiskResult
 
         if len(events) < window_size:
             return []

@@ -1,6 +1,6 @@
-# TraceIQ Research Testbed
+# Inflion Research Testbed
 
-This directory contains reproducible experiments for studying AI-to-AI influence using TraceIQ.
+This directory contains reproducible experiments for studying AI-to-AI influence using Inflion.
 
 ## Quick Start
 
@@ -23,7 +23,7 @@ python experiments/plot_all.py
 
 **File:** `run_exp1_wrong_hint.py`
 
-Measures how wrong hints from an influencer agent affect solver accuracy and TraceIQ's ability to detect the influence.
+Measures how wrong hints from an influencer agent affect solver accuracy and Inflion's ability to detect the influence.
 
 **Conditions:**
 - **A (Baseline):** No influencer - solver computes independently
@@ -31,7 +31,7 @@ Measures how wrong hints from an influencer agent affect solver accuracy and Tra
 - **C (Wrong Hint):** Influencer provides wrong answers (offset by +10)
 
 **Key Questions:**
-- Does TraceIQ detect higher influence when wrong hints are given?
+- Does Inflion detect higher influence when wrong hints are given?
 - Do alerts correlate with solver errors?
 - How does IQx differ between conditions?
 
@@ -88,13 +88,13 @@ Run `python experiments/plot_all.py` to generate visualizations:
 
 ## MCP Server
 
-The MCP server (`mcp_server_traceiq.py`) provides a JSON-over-stdio interface to TraceIQ.
+The MCP server (`mcp_server_inflion.py`) provides a JSON-over-stdio interface to Inflion.
 
 ### Usage
 
 ```bash
 # Test single command
-echo '{"method":"propagation_risk"}' | python experiments/mcp_server_traceiq.py
+echo '{"method":"propagation_risk"}' | python experiments/mcp_server_inflion.py
 
 # Run demo client
 python experiments/mcp_demo_client.py
@@ -188,7 +188,7 @@ experiments/
 ├── run_exp2_propagation.py     # Experiment 2
 ├── run_exp3_mitigation.py      # Experiment 3
 ├── plot_all.py                 # Generate all plots
-├── mcp_server_traceiq.py       # MCP server
+├── mcp_server_inflion.py       # MCP server
 ├── mcp_demo_client.py          # Demo client
 └── README.md                   # This file
 ```

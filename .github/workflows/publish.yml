@@ -105,7 +105,7 @@ jobs:
 
       - name: Verify wheel filename
         run: |
-          EXPECTED="traceiq-${{ steps.versions.outputs.tag }}-py3-none-any.whl"
+          EXPECTED="inflion-${{ steps.versions.outputs.tag }}-py3-none-any.whl"
           if [ ! -f "dist/$EXPECTED" ]; then
             echo "::error::Expected wheel not found: $EXPECTED"
             ls -la dist/
@@ -119,13 +119,13 @@ jobs:
       - name: Verify installed metadata matches tag
         run: |
           pip install dist/*.whl
-          INSTALLED=$(python3 -c "import importlib.metadata; print(importlib.metadata.version('traceiq'))")
+          INSTALLED=$(python3 -c "import importlib.metadata; print(importlib.metadata.version('inflion'))")
           if [ "$INSTALLED" != "${{ steps.versions.outputs.tag }}" ]; then
             echo "::error::Installed metadata ($INSTALLED) != tag (${{ steps.versions.outputs.tag }})"
             exit 1
           fi
           echo "Metadata verified: $INSTALLED"
-          traceiq --version
+          inflion --version
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -139,7 +139,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/project/traceiq/
+      url: https://pypi.org/project/inflion/
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4

@@ -127,7 +127,7 @@ def run_experiment(
                         probe_iqx = iqx_history[-1]
                         # Compute Z-score of recent IQx against history
                         if len(iqx_history) >= 3:
-                            from traceiq.metrics import compute_z_score_robust
+                            from inflion.metrics import compute_z_score_robust
 
                             probe_z_score = compute_z_score_robust(
                                 probe_iqx, iqx_history[:-1], epsilon=1e-6

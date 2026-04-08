@@ -9,8 +9,8 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 from uuid import UUID
 
-from traceiq.models import InteractionEvent, PropagationRiskResult, ScoreResult
-from traceiq.storage.base import StorageBackend
+from inflion.models import InteractionEvent, PropagationRiskResult, ScoreResult
+from inflion.storage.base import StorageBackend
 
 if TYPE_CHECKING:
     pass
@@ -119,7 +119,7 @@ class SQLiteStorage(StorageBackend):
         # Check if old schema (single 'content' column) exists
         if "content" in columns and "sender_content" not in columns:
             raise RuntimeError(
-                "Database schema is from an older TraceIQ version and is incompatible. "
+                "Database schema is from an older Inflion version and is incompatible. "
                 "Export data and re-ingest with receiver_content."
             )
 

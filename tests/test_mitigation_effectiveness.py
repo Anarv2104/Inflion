@@ -1,6 +1,6 @@
 """Mitigation guard effectiveness tests."""
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 
 class TestAlertInfrastructure:

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Statistical analysis of TraceIQ experiment results.
+"""Statistical analysis of Inflion experiment results.
 
 This script performs rigorous statistical analysis on experiment results:
 - Confidence intervals for all metrics
@@ -477,7 +477,7 @@ def print_results(comparisons: list[ComparisonResult]) -> None:
 
 def main() -> None:
     """Run statistical analysis on experiment results."""
-    print("Statistical Analysis of TraceIQ Experiments")
+    print("Statistical Analysis of Inflion Experiments")
     print("-" * 40)
 
     if not HAS_PANDAS:

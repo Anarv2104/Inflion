@@ -1,10 +1,10 @@
 # Core Concepts
 
-This document explains the fundamental concepts behind TraceIQ's influence measurement.
+This document explains the fundamental concepts behind Inflion's influence measurement.
 
 ## Overview
 
-TraceIQ measures how AI agents influence each other by tracking changes in their outputs after interactions. It uses semantic embeddings to represent agent states and computes various metrics to quantify influence.
+Inflion measures how AI agents influence each other by tracking changes in their outputs after interactions. It uses semantic embeddings to represent agent states and computes various metrics to quantify influence.
 
 ## Key Concepts
 
@@ -16,7 +16,7 @@ An agent's state is represented as a semantic embedding of its output:
 state = embed(agent_output)
 ```
 
-TraceIQ supports two embedding backends:
+Inflion supports two embedding backends:
 - **MockEmbedder**: Hash-based, deterministic, fast (for testing)
 - **SentenceTransformerEmbedder**: Neural embeddings, semantic similarity (for production)
 
@@ -70,7 +70,7 @@ Always check `result["valid"]` before taking action on metrics.
 
 1. **Correlation, not causation**: High metrics indicate state change correlated with message receipt, not proven causal influence.
 
-2. **Observable outputs only**: TraceIQ cannot access agent internal states or reasoning.
+2. **Observable outputs only**: Inflion cannot access agent internal states or reasoning.
 
 3. **Threshold calibration**: Default thresholds are starting points; calibrate for your specific system.
 

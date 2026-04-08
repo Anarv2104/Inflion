@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Compare TraceIQ metrics with baseline influence detection methods.
+"""Compare Inflion metrics with baseline influence detection methods.
 
-This script evaluates TraceIQ's IQx metric against alternative approaches:
+This script evaluates Inflion's IQx metric against alternative approaches:
 - Mutual Information (MI)
 - Pearson correlation
 - Cosine similarity
@@ -244,12 +244,12 @@ def run_comparison_exp1(df: pd.DataFrame) -> list[MethodResult]:
     # Labels: 1 for condition C (wrong hint), 0 for condition A (baseline)
     labels = (df_filtered["condition"] == "C").astype(int).tolist()
 
-    # Method 1: IQx (TraceIQ)
+    # Method 1: IQx (Inflion)
     if "IQx" in df_filtered.columns:
         iqx_scores = df_filtered["IQx"].fillna(0).tolist()
         results.append(evaluate_method(
             iqx_scores, labels,
-            "IQx (TraceIQ)",
+            "IQx (Inflion)",
             "Influence Quotient: drift / (baseline + epsilon)"
         ))
 
@@ -428,7 +428,7 @@ def print_results(results: list[MethodResult], title: str) -> None:
 
 def main() -> None:
     """Run method comparison analysis."""
-    print("TraceIQ Method Comparison")
+    print("Inflion Method Comparison")
     print("-" * 40)
 
     if not HAS_DEPS:

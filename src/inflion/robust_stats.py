@@ -8,7 +8,7 @@ them suitable for anomaly detection in adversarial settings.
 from __future__ import annotations
 
 # Re-export from metrics module
-from traceiq.metrics import (
+from inflion.metrics import (
     MAD_CONSTANT,
     compute_z_score_robust,
     rolling_mad,

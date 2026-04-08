@@ -7,7 +7,7 @@ from uuid import uuid4
 import numpy as np
 import pytest
 
-from traceiq.scoring import ScoringEngine, cosine_similarity
+from inflion.scoring import ScoringEngine, cosine_similarity
 
 
 class TestCosineSimilarity:
@@ -225,7 +225,7 @@ class TestScoringEngine:
 
     def test_iqx_none_until_baseline_ready(self) -> None:
         """IQx should be None until MIN_BASELINE_SAMPLES drift values collected."""
-        from traceiq.metrics import MIN_BASELINE_SAMPLES
+        from inflion.metrics import MIN_BASELINE_SAMPLES
 
         engine = ScoringEngine(baseline_window=10)
 
@@ -275,7 +275,7 @@ class TestScoringEngine:
 
     def test_iqx_capped(self) -> None:
         """IQx should be capped to prevent extreme values."""
-        from traceiq.metrics import IQX_CAP, MIN_BASELINE_SAMPLES
+        from inflion.metrics import IQX_CAP, MIN_BASELINE_SAMPLES
 
         engine = ScoringEngine(baseline_window=10)
 
@@ -313,7 +313,7 @@ class TestScoringEngine:
 
     def test_robust_zscore_not_extreme(self) -> None:
         """Z-scores should be reasonable even with outliers."""
-        from traceiq.metrics import MIN_BASELINE_SAMPLES
+        from inflion.metrics import MIN_BASELINE_SAMPLES
 
         engine = ScoringEngine(baseline_window=20, anomaly_threshold=2.0)
 

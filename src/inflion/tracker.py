@@ -8,21 +8,21 @@ from uuid import uuid4
 
 import numpy as np
 
-from traceiq.capabilities import CapabilityRegistry
-from traceiq.embeddings import MockEmbedder, SentenceTransformerEmbedder
-from traceiq.export import export_combined_csv, export_combined_jsonl
-from traceiq.graph import InfluenceGraph
-from traceiq.metrics import compute_accumulated_influence
-from traceiq.models import InteractionEvent, ScoreResult, SummaryReport, TrackerConfig
-from traceiq.policy import PolicyEngine
-from traceiq.risk import RiskResult, compute_risk_score
-from traceiq.scoring import ScoringEngine
-from traceiq.storage import MemoryStorage, SQLiteStorage, StorageBackend
-from traceiq.validity import check_validity
+from inflion.capabilities import CapabilityRegistry
+from inflion.embeddings import MockEmbedder, SentenceTransformerEmbedder
+from inflion.export import export_combined_csv, export_combined_jsonl
+from inflion.graph import InfluenceGraph
+from inflion.metrics import compute_accumulated_influence
+from inflion.models import InteractionEvent, ScoreResult, SummaryReport, TrackerConfig
+from inflion.policy import PolicyEngine
+from inflion.risk import RiskResult, compute_risk_score
+from inflion.scoring import ScoringEngine
+from inflion.storage import MemoryStorage, SQLiteStorage, StorageBackend
+from inflion.validity import check_validity
 
 if TYPE_CHECKING:
-    from traceiq.models import PropagationRiskResult
-    from traceiq.schema import TraceIQEvent
+    from inflion.models import PropagationRiskResult
+    from inflion.schema import InflionEvent
 
 
 class InfluenceTracker:
@@ -103,8 +103,8 @@ class InfluenceTracker:
         sender_content: str,
         receiver_content: str,
         metadata: dict[str, Any] | None = None,
-        # NEW: Optional TraceIQEvent for full schema (v0.4.0)
-        event: TraceIQEvent | None = None,
+        # NEW: Optional InflionEvent for full schema (v0.4.0)
+        event: InflionEvent | None = None,
         # NEW: Run tracking (v0.4.0)
         run_id: str | None = None,
         task_id: str | None = None,
@@ -120,7 +120,7 @@ class InfluenceTracker:
             sender_content: Content from sender (message, output, etc.)
             receiver_content: Receiver's response or updated state
             metadata: Optional metadata dict
-            event: Optional TraceIQEvent for full schema support
+            event: Optional InflionEvent for full schema support
             run_id: Optional run identifier for experiment tracking
             task_id: Optional task identifier within a run
             state_quality: Optional state quality hint (auto-computed if not provided)
@@ -130,7 +130,7 @@ class InfluenceTracker:
         """
         # Use provided event or create from params
         if event is not None:
-            # Extract fields from TraceIQEvent
+            # Extract fields from InflionEvent
             sender_id = event.sender_id
             receiver_id = event.receiver_id
             sender_content = event.sender_content
@@ -219,9 +219,9 @@ class InfluenceTracker:
 
         if self._policy is not None and risk_result is not None:
             # Import here to avoid circular dependency
-            from traceiq.schema import TraceIQEvent as FullEvent
+            from inflion.schema import InflionEvent as FullEvent
 
-            # Create TraceIQEvent for policy processing
+            # Create InflionEvent for policy processing
             full_event = FullEvent(
                 event_id=str(interaction_event.event_id),
                 run_id=run_id or str(uuid4()),

@@ -84,7 +84,7 @@ def run_synthetic_simulation(
     Returns:
         Dict with simulation results
     """
-    from traceiq import InfluenceTracker, TrackerConfig
+    from inflion import InfluenceTracker, TrackerConfig
 
     random.seed(seed)
 
@@ -267,7 +267,7 @@ def run_synthetic_simulation(
 
     # Generate plots if matplotlib available
     try:
-        from traceiq.plotting import (
+        from inflion.plotting import (
             plot_drift_over_time,
             plot_influence_heatmap,
             plot_iqx_heatmap,

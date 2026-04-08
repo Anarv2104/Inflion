@@ -139,7 +139,7 @@ def run_experiment(
                 next_hint = compute_own_answer(task)
                 forwarded = False
 
-            # Track event in TraceIQ
+            # Track event in Inflion
             track_result = tracker.track_event(
                 sender_id=sender,
                 receiver_id=receiver,

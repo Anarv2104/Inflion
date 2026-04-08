@@ -1,6 +1,6 @@
 # API Reference
 
-Complete API documentation for TraceIQ.
+Complete API documentation for Inflion.
 
 ## Core Classes
 
@@ -9,7 +9,7 @@ Complete API documentation for TraceIQ.
 The main class for tracking AI-to-AI influence.
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 tracker = InfluenceTracker(
     config: TrackerConfig | None = None,
@@ -108,7 +108,7 @@ with InfluenceTracker(config=config) as tracker:
 Configuration for InfluenceTracker.
 
 ```python
-from traceiq import TrackerConfig
+from inflion import TrackerConfig
 
 config = TrackerConfig(
     # Storage
@@ -137,7 +137,7 @@ config = TrackerConfig(
 Pydantic model for interaction events.
 
 ```python
-from traceiq import InteractionEvent
+from inflion import InteractionEvent
 
 event = InteractionEvent(
     event_id: UUID = auto,      # Auto-generated
@@ -156,7 +156,7 @@ event = InteractionEvent(
 Pydantic model for score results.
 
 ```python
-from traceiq.models import ScoreResult
+from inflion.models import ScoreResult
 
 score = ScoreResult(
     event_id: UUID,
@@ -175,7 +175,7 @@ score = ScoreResult(
 Pydantic model for summary reports.
 
 ```python
-from traceiq import SummaryReport
+from inflion import SummaryReport
 
 report = SummaryReport(
     total_events: int,
@@ -200,7 +200,7 @@ report = SummaryReport(
 Graph analytics for influence patterns.
 
 ```python
-from traceiq.graph import InfluenceGraph
+from inflion.graph import InfluenceGraph
 
 graph = tracker.graph  # Access via tracker
 ```
@@ -256,10 +256,10 @@ cycles: list[list[str]] = graph.detect_cycles(min_weight=0.1)
 
 ## Plotting Module
 
-Requires `pip install traceiq[plot]`.
+Requires `pip install inflion[plot]`.
 
 ```python
-from traceiq.plotting import (
+from inflion.plotting import (
     plot_drift_over_time,
     plot_influence_heatmap,
     plot_top_influencers,
@@ -318,7 +318,7 @@ plot_influence_network(
 ### StorageBackend (Abstract)
 
 ```python
-from traceiq.storage import StorageBackend
+from inflion.storage import StorageBackend
 
 class StorageBackend(ABC):
     def store_event(self, event: InteractionEvent) -> None: ...
@@ -335,7 +335,7 @@ class StorageBackend(ABC):
 In-memory storage implementation.
 
 ```python
-from traceiq.storage import MemoryStorage
+from inflion.storage import MemoryStorage
 storage = MemoryStorage()
 ```
 
@@ -344,6 +344,6 @@ storage = MemoryStorage()
 Persistent SQLite storage.
 
 ```python
-from traceiq.storage import SQLiteStorage
-storage = SQLiteStorage(db_path="traceiq.db")
+from inflion.storage import SQLiteStorage
+storage = SQLiteStorage(db_path="inflion.db")
 ```

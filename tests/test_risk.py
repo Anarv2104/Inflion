@@ -2,7 +2,7 @@
 
 import pytest
 
-from traceiq.risk import (
+from inflion.risk import (
     DEFAULT_RISK_THRESHOLDS,
     RiskResult,
     aggregate_risk_scores,

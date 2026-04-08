@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Verify mathematical properties of TraceIQ metrics.
+"""Verify mathematical properties of Inflion metrics.
 
-This script validates the theoretical properties of TraceIQ's influence metrics:
+This script validates the theoretical properties of Inflion's influence metrics:
 - IQx non-negativity
 - IQx monotonicity
 - IQx zero-influence property
@@ -32,7 +32,7 @@ import numpy as np
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from traceiq.metrics import (
+from inflion.metrics import (
     compute_drift_l2,
     compute_IQx,
     compute_propagation_risk,

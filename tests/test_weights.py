@@ -2,7 +2,7 @@
 
 import pytest
 
-from traceiq.weights import (
+from inflion.weights import (
     alignment_weight,
     bounded_iqx_weight,
     clamp_weight,

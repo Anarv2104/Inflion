@@ -108,3 +108,6 @@ site/
 # Build artifacts
 dist/
 build/
+
+.venv/
+.venv-test/

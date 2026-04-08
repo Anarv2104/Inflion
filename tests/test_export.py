@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-from traceiq.export import (
+from inflion.export import (
     export_combined_csv,
     export_combined_jsonl,
     export_events_csv,
@@ -16,7 +16,7 @@ from traceiq.export import (
     export_scores_csv,
     export_scores_jsonl,
 )
-from traceiq.models import InteractionEvent, ScoreResult
+from inflion.models import InteractionEvent, ScoreResult
 
 
 class TestExportCSV:

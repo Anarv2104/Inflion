@@ -1,8 +1,8 @@
-# TraceIQ
+# Inflion
 
-**Measure AI-to-AI influence in multi-agent systems.**
+**Observability and influence tracing infrastructure for multi-agent AI systems.**
 
-TraceIQ provides tools to track, analyze, and visualize how ideas and behaviors spread between AI agents in multi-agent environments.
+Inflion provides tools to track, analyze, and visualize how ideas and behaviors spread between AI agents in multi-agent environments.
 
 ## Features
 
@@ -17,22 +17,22 @@ TraceIQ provides tools to track, analyze, and visualize how ideas and behaviors 
 
 ```bash
 # Core installation
-pip install traceiq
+pip install inflion
 
 # With plotting support
-pip install traceiq[plot]
+pip install inflion[plot]
 
 # With embedding support
-pip install traceiq[embedding]
+pip install inflion[embedding]
 
 # Everything
-pip install traceiq[all]
+pip install inflion[all]
 ```
 
 ## Quick Start
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 # Create tracker
 tracker = InfluenceTracker(use_mock_embedder=True)

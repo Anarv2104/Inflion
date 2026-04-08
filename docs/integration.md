@@ -1,10 +1,10 @@
 # Integration Guide
 
-This guide provides templates for integrating TraceIQ with different types of AI agent architectures.
+This guide provides templates for integrating Inflion with different types of AI agent architectures.
 
 ## Overview
 
-TraceIQ can track influence across various agent types. The key is providing appropriate context to maximize metric confidence:
+Inflion can track influence across various agent types. The key is providing appropriate context to maximize metric confidence:
 
 | Agent Type | receiver_input_view | receiver_state_before/after | state_quality |
 |------------|---------------------|----------------------------|---------------|
@@ -18,7 +18,7 @@ TraceIQ can track influence across various agent types. The key is providing app
 For simple LLM agents without retrieval or tools, basic tracking is sufficient.
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 config = TrackerConfig(
     storage_backend="sqlite",
@@ -60,7 +60,7 @@ print(f"Risk level: {metrics['risk_level']}")
 For RAG agents, include the retrieved context to improve metric confidence.
 
 ```python
-from traceiq import InfluenceTracker, TraceIQEvent
+from inflion import InfluenceTracker, InflionEvent
 
 tracker = InfluenceTracker()
 
@@ -75,7 +75,7 @@ def process_rag_query(sender_agent, rag_agent, query):
     response = rag_agent.generate(query, context=retrieved_chunks)
 
     # Create full event with input view
-    event = TraceIQEvent(
+    event = InflionEvent(
         run_id="rag_session_001",
         sender_id=sender_agent.id,
         receiver_id=rag_agent.id,
@@ -101,7 +101,7 @@ print(f"Confidence: {metrics['confidence']}")  # Should be "medium"
 For agents that use tools, include tool outputs in the input view.
 
 ```python
-from traceiq import InfluenceTracker, TraceIQEvent
+from inflion import InfluenceTracker, InflionEvent
 
 tracker = InfluenceTracker()
 
@@ -123,7 +123,7 @@ def process_with_tools(sender_agent, tool_agent, instruction):
     response = tool_agent.synthesize(instruction, tool_outputs)
 
     # Track with tool context
-    event = TraceIQEvent(
+    event = InflionEvent(
         run_id="tool_session_001",
         sender_id=sender_agent.id,
         receiver_id=tool_agent.id,
@@ -144,7 +144,7 @@ def process_with_tools(sender_agent, tool_agent, instruction):
 For agents with persistent memory, track memory state changes for highest confidence.
 
 ```python
-from traceiq import InfluenceTracker, TraceIQEvent
+from inflion import InfluenceTracker, InflionEvent
 import json
 
 tracker = InfluenceTracker()
@@ -166,7 +166,7 @@ def process_with_memory(sender_agent, memory_agent, message):
     memory_after = json.dumps(memory_agent.get_memory_state())
 
     # Track with full state information
-    event = TraceIQEvent(
+    event = InflionEvent(
         run_id="memory_session_001",
         sender_id=sender_agent.id,
         receiver_id=memory_agent.id,
@@ -193,8 +193,8 @@ def process_with_memory(sender_agent, memory_agent, message):
 For complex multi-agent systems, track the full conversation flow.
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
-from traceiq.report import generate_risk_report
+from inflion import InfluenceTracker, TrackerConfig
+from inflion.report import generate_risk_report
 from uuid import uuid4
 
 config = TrackerConfig(
@@ -247,13 +247,13 @@ class AgentOrchestrator:
 
     def generate_report(self, output_path: str):
         """Generate a risk report for this orchestration run."""
-        from traceiq.schema import TraceIQEvent
+        from inflion.schema import InflionEvent
 
         events = self.tracker.get_events()
         scores = self.tracker.get_scores()
 
         trace_events = [
-            TraceIQEvent(
+            InflionEvent(
                 event_id=str(e.event_id),
                 run_id=self.run_id,
                 sender_id=e.sender_id,
@@ -313,7 +313,7 @@ for interaction in experiment_data:
 tracker.export_csv("influence_data.csv")
 
 # Generate risk report
-from traceiq.report import generate_risk_report
+from inflion.report import generate_risk_report
 generate_risk_report(events, scores, run_id, "report.md")
 ```
 
@@ -343,7 +343,7 @@ if result["valid"] and result["IQx"] > 2.0:
 
 ## MCP Server
 
-An experimental MCP (Model Context Protocol) server is included in `experiments/mcp_server_traceiq.py`. This provides a JSON-over-stdio interface for external tools to log interactions and query metrics.
+An experimental MCP (Model Context Protocol) server is included in `experiments/mcp_server_inflion.py`. This provides a JSON-over-stdio interface for external tools to log interactions and query metrics.
 
 See [experiments/README.md](../experiments/README.md) for usage details.
 

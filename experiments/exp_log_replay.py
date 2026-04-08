@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Experiment 4: Real Log Replay.
 
-Proves TraceIQ detects influence spikes in realistic log format.
+Proves Inflion detects influence spikes in realistic log format.
 
 Setup:
     - Static JSONL log with ground truth injection markers
@@ -15,7 +15,7 @@ Usage:
     python exp_log_replay.py
     python exp_log_replay.py --log-file custom_log.jsonl
 
-Note: Requires traceiq to be installed (pip install -e . from repo root)
+Note: Requires inflion to be installed (pip install -e . from repo root)
 """
 
 from __future__ import annotations
@@ -83,7 +83,7 @@ def run_replay(
     log_path: Path = DEFAULT_LOG_FILE,
     output_dir: Path | None = None,
 ) -> dict:
-    """Replay log through TraceIQ and analyze results.
+    """Replay log through Inflion and analyze results.
 
     Args:
         log_path: Path to JSONL log file

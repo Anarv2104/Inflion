@@ -1,6 +1,6 @@
-# Contributing to TraceIQ
+# Contributing to Inflion
 
-Thank you for your interest in contributing to TraceIQ! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to Inflion! This document provides guidelines and instructions for contributing.
 
 ## Development Setup
 
@@ -13,8 +13,8 @@ Thank you for your interest in contributing to TraceIQ! This document provides g
 
 ```bash
 # Clone the repository
-git clone https://github.com/Anarv2104/TraceIQ.git
-cd TraceIQ
+git clone https://github.com/Anarv2104/Inflion.git
+cd Inflion
 
 # Create a virtual environment (recommended)
 python -m venv venv
@@ -55,7 +55,7 @@ pytest -v
 pytest tests/test_scoring.py -v
 
 # Run with coverage
-pytest --cov=traceiq --cov-report=html
+pytest --cov=inflion --cov-report=html
 ```
 
 ## Pull Request Process

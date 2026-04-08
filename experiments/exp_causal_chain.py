@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Experiment 1: Ground-Truth Causal Chain.
 
-Proves TraceIQ correctly ranks influence when causal topology is known.
+Proves Inflion correctly ranks influence when causal topology is known.
 
 Setup:
     - Agents: A, B, C (causal chain) + D (independent)

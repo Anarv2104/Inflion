@@ -111,9 +111,9 @@ jobs:
       - name: Verify wheel installation
         run: |
           pip install dist/*.whl
-          INSTALLED=$(python3 -c "import importlib.metadata; print(importlib.metadata.version('traceiq'))")
+          INSTALLED=$(python3 -c "import importlib.metadata; print(importlib.metadata.version('inflion'))")
           echo "Installed version: $INSTALLED"
-          traceiq --version
+          inflion --version
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -127,7 +127,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/project/traceiq/
+      url: https://test.pypi.org/project/inflion/
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4

@@ -13,7 +13,7 @@ ignore = [
 ]
 
 [lint.isort]
-known-first-party = ["traceiq"]
+known-first-party = ["inflion"]
 
 [format]
 quote-style = "double"

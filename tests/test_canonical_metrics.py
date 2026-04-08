@@ -13,10 +13,10 @@ from uuid import uuid4
 import numpy as np
 import pytest
 
-from traceiq.models import TrackerConfig
-from traceiq.scoring import ScoringEngine
-from traceiq.storage.sqlite import SQLiteStorage
-from traceiq.tracker import InfluenceTracker
+from inflion.models import TrackerConfig
+from inflion.scoring import ScoringEngine
+from inflion.storage.sqlite import SQLiteStorage
+from inflion.tracker import InfluenceTracker
 
 
 class TestCanonicalDrift:

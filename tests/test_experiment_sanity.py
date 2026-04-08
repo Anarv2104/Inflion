@@ -1,16 +1,16 @@
 """Experiment sanity - determinism and schema validation.
 
-CI-safe tests that validate core traceiq behavior:
+CI-safe tests that validate core inflion behavior:
 - Determinism with fixed seeds
-- Schema validation for TraceIQEvent
+- Schema validation for InflionEvent
 - IQx bounds checking on tracker output
 """
 
 import json
 import math
 
-from traceiq import InfluenceTracker, TraceIQEvent, TrackerConfig
-from traceiq.metrics import IQX_CAP
+from inflion import InflionEvent, InfluenceTracker, TrackerConfig
+from inflion.metrics import IQX_CAP
 
 
 class TestDeterminism:
@@ -52,12 +52,12 @@ class TestDeterminism:
 
 
 class TestSchemaValidation:
-    """TraceIQEvent serializes correctly."""
+    """InflionEvent serializes correctly."""
 
     def test_event_to_json(self) -> None:
         from uuid import uuid4
 
-        event = TraceIQEvent(
+        event = InflionEvent(
             event_id=str(uuid4()),
             run_id="test-run",
             sender_id="sender",
@@ -75,7 +75,7 @@ class TestSchemaValidation:
     def test_event_roundtrip(self) -> None:
         from uuid import uuid4
 
-        event = TraceIQEvent(
+        event = InflionEvent(
             event_id=str(uuid4()),
             run_id="test-run",
             sender_id="sender",
@@ -86,7 +86,7 @@ class TestSchemaValidation:
         )
 
         json_str = event.to_jsonl()
-        restored = TraceIQEvent.from_jsonl(json_str)
+        restored = InflionEvent.from_jsonl(json_str)
 
         assert restored.sender_id == event.sender_id
         assert restored.receiver_id == event.receiver_id
@@ -95,7 +95,7 @@ class TestSchemaValidation:
     def test_event_with_policy(self) -> None:
         from uuid import uuid4
 
-        event = TraceIQEvent(
+        event = InflionEvent(
             event_id=str(uuid4()),
             run_id="test-run",
             sender_id="sender",
@@ -111,7 +111,7 @@ class TestSchemaValidation:
 
 
 class TestTrackerWithSchema:
-    """Test tracker integration with TraceIQEvent schema."""
+    """Test tracker integration with InflionEvent schema."""
 
     def test_track_with_run_id(self) -> None:
         config = TrackerConfig(

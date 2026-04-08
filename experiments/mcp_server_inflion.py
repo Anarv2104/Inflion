@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""MCP Server for TraceIQ.
+"""MCP Server for Inflion.
 
-A simple JSON-over-stdio server that exposes TraceIQ functionality
+A simple JSON-over-stdio server that exposes Inflion functionality
 via a request/response protocol.
 
 Protocol:
@@ -17,7 +17,7 @@ Available methods:
 - propagation_risk: Get current propagation risk
 
 Usage:
-    echo '{"method":"propagation_risk"}' | python mcp_server_traceiq.py
+    echo '{"method":"propagation_risk"}' | python mcp_server_inflion.py
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ import json
 import sys
 from pathlib import Path
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 
 def create_server_tracker() -> InfluenceTracker:
@@ -108,7 +108,7 @@ def handle_export_csv(tracker: InfluenceTracker, params: dict) -> dict:
     Returns:
         Success dict with path
     """
-    path = params.get("path", "traceiq_export.csv")
+    path = params.get("path", "inflion_export.csv")
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
 

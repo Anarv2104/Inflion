@@ -1,13 +1,13 @@
 # Quick Start
 
-Get started with TraceIQ in 5 minutes.
+Get started with Inflion in 5 minutes.
 
 ## Basic Usage
 
 ### 1. Create a Tracker
 
 ```python
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 # Simple setup with defaults
 tracker = InfluenceTracker(use_mock_embedder=True)
@@ -88,7 +88,7 @@ tracker.export_jsonl("interactions.jsonl")
 ### 6. Visualize (requires matplotlib)
 
 ```python
-from traceiq.plotting import plot_influence_heatmap, plot_top_influencers
+from inflion.plotting import plot_influence_heatmap, plot_top_influencers
 
 # Heatmap of influence scores
 plot_influence_heatmap(tracker.graph, output_path="heatmap.png")
@@ -102,7 +102,7 @@ plot_top_influencers(tracker.graph, n=5, output_path="influencers.png")
 For production use with semantic embeddings:
 
 ```python
-# Requires: pip install traceiq[embedding]
+# Requires: pip install inflion[embedding]
 tracker = InfluenceTracker(use_mock_embedder=False)
 
 # The first call will download the model (~90MB)
@@ -124,7 +124,7 @@ For persistent storage:
 ```python
 config = TrackerConfig(
     storage_backend="sqlite",
-    storage_path="traceiq.db",
+    storage_path="inflion.db",
 )
 
 tracker = InfluenceTracker(config=config, use_mock_embedder=True)
@@ -142,19 +142,19 @@ events = tracker2.get_events()  # Previous events are still there
 
 ```bash
 # Initialize database
-traceiq init --db mydata.db
+inflion init --db mydata.db
 
 # Ingest interactions from JSONL
-traceiq ingest interactions.jsonl --db mydata.db
+inflion ingest interactions.jsonl --db mydata.db
 
 # View summary
-traceiq summary --db mydata.db
+inflion summary --db mydata.db
 
 # Export data
-traceiq export --db mydata.db -o output.csv
+inflion export --db mydata.db -o output.csv
 
 # Generate plots
-traceiq plot heatmap --db mydata.db -o heatmap.png
+inflion plot heatmap --db mydata.db -o heatmap.png
 ```
 
 ## Next Steps

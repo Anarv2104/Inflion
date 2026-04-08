@@ -13,19 +13,19 @@ import pytest
 class TestImportSafety:
     """Test that imports work without optional dependencies."""
 
-    def test_import_traceiq_without_matplotlib(self) -> None:
-        """Import traceiq should work without matplotlib installed."""
+    def test_import_inflion_without_matplotlib(self) -> None:
+        """Import inflion should work without matplotlib installed."""
         # This test validates that the main package imports without matplotlib
         # The actual import happens at module level, this just validates it worked
-        import traceiq
+        import inflion
 
-        assert hasattr(traceiq, "InfluenceTracker")
-        assert hasattr(traceiq, "TrackerConfig")
-        assert hasattr(traceiq, "__version__")
+        assert hasattr(inflion, "InfluenceTracker")
+        assert hasattr(inflion, "TrackerConfig")
+        assert hasattr(inflion, "__version__")
 
     def test_import_models(self) -> None:
         """Import models should work."""
-        from traceiq.models import (
+        from inflion.models import (
             InteractionEvent,
             ScoreResult,
             SummaryReport,
@@ -39,7 +39,7 @@ class TestImportSafety:
 
     def test_import_tracker(self) -> None:
         """Import tracker should work."""
-        from traceiq.tracker import InfluenceTracker
+        from inflion.tracker import InfluenceTracker
 
         assert InfluenceTracker is not None
 
@@ -49,7 +49,7 @@ class TestSchemaCompatibility:
 
     def test_new_db_has_correct_schema(self, tmp_path: Path) -> None:
         """A new database should have both content columns."""
-        from traceiq.storage import SQLiteStorage
+        from inflion.storage import SQLiteStorage
 
         db_path = tmp_path / "test.db"
         storage = SQLiteStorage(db_path)
@@ -66,7 +66,7 @@ class TestSchemaCompatibility:
 
     def test_old_schema_raises_error(self, tmp_path: Path) -> None:
         """Opening a database with old schema should raise RuntimeError."""
-        from traceiq.storage import SQLiteStorage
+        from inflion.storage import SQLiteStorage
 
         db_path = tmp_path / "old.db"
 
@@ -89,7 +89,7 @@ class TestSchemaCompatibility:
         with pytest.raises(RuntimeError) as exc_info:
             SQLiteStorage(db_path)
 
-        assert "older TraceIQ version" in str(exc_info.value)
+        assert "older Inflion version" in str(exc_info.value)
         assert "incompatible" in str(exc_info.value)
 
     def test_insert_and_retrieve_event(self, tmp_path: Path) -> None:
@@ -97,8 +97,8 @@ class TestSchemaCompatibility:
         from datetime import datetime, timezone
         from uuid import uuid4
 
-        from traceiq.models import InteractionEvent
-        from traceiq.storage import SQLiteStorage
+        from inflion.models import InteractionEvent
+        from inflion.storage import SQLiteStorage
 
         db_path = tmp_path / "crud.db"
         storage = SQLiteStorage(db_path)
@@ -128,7 +128,7 @@ class TestDeterministicOrdering:
 
     def test_summary_ordering_is_deterministic(self) -> None:
         """Same events should produce same ordering in summary."""
-        from traceiq.models import TrackerConfig
+        from inflion.models import TrackerConfig
 
         config = TrackerConfig(
             storage_backend="memory",
@@ -146,7 +146,7 @@ class TestDeterministicOrdering:
 
     def _run_tracking_session(self, config) -> dict:
         """Run a tracking session and return summary data."""
-        from traceiq.tracker import InfluenceTracker
+        from inflion.tracker import InfluenceTracker
 
         tracker = InfluenceTracker(config=config, use_mock_embedder=True)
 
@@ -174,8 +174,8 @@ class TestDeterministicOrdering:
         """Agents with same score should be ordered by agent_id."""
         from uuid import uuid4
 
-        from traceiq.graph import InfluenceGraph
-        from traceiq.models import InteractionEvent, ScoreResult
+        from inflion.graph import InfluenceGraph
+        from inflion.models import InteractionEvent, ScoreResult
 
         graph = InfluenceGraph()
 
@@ -208,7 +208,7 @@ class TestEmbeddingCache:
 
     def test_same_content_uses_cache(self) -> None:
         """Embedding same content twice should hit cache."""
-        from traceiq.embeddings import MockEmbedder
+        from inflion.embeddings import MockEmbedder
 
         embedder = MockEmbedder(seed=42)
 
@@ -224,7 +224,7 @@ class TestEmbeddingCache:
 
     def test_different_content_misses_cache(self) -> None:
         """Embedding different content should miss cache."""
-        from traceiq.embeddings import MockEmbedder
+        from inflion.embeddings import MockEmbedder
 
         embedder = MockEmbedder(seed=42)
 
@@ -238,7 +238,7 @@ class TestEmbeddingCache:
 
     def test_cache_key_uses_truncated_content(self) -> None:
         """Cache key should be based on truncated content only."""
-        from traceiq.embeddings import MockEmbedder
+        from inflion.embeddings import MockEmbedder
 
         embedder = MockEmbedder(seed=42, max_content_length=10)
 
@@ -264,8 +264,8 @@ class TestExportContents:
 
     def test_csv_export_has_both_contents(self, tmp_path: Path) -> None:
         """CSV export should include sender_content and receiver_content."""
-        from traceiq.models import TrackerConfig
-        from traceiq.tracker import InfluenceTracker
+        from inflion.models import TrackerConfig
+        from inflion.tracker import InfluenceTracker
 
         config = TrackerConfig(storage_backend="memory")
         tracker = InfluenceTracker(config=config, use_mock_embedder=True)
@@ -291,8 +291,8 @@ class TestExportContents:
 
     def test_jsonl_export_has_both_contents(self, tmp_path: Path) -> None:
         """JSONL export should include sender_content and receiver_content."""
-        from traceiq.models import TrackerConfig
-        from traceiq.tracker import InfluenceTracker
+        from inflion.models import TrackerConfig
+        from inflion.tracker import InfluenceTracker
 
         config = TrackerConfig(storage_backend="memory")
         tracker = InfluenceTracker(config=config, use_mock_embedder=True)
@@ -320,8 +320,8 @@ class TestScoringFlags:
 
     def test_cold_start_flag(self) -> None:
         """First interaction should have cold_start flag."""
-        from traceiq.models import TrackerConfig
-        from traceiq.tracker import InfluenceTracker
+        from inflion.models import TrackerConfig
+        from inflion.tracker import InfluenceTracker
 
         config = TrackerConfig(storage_backend="memory")
         tracker = InfluenceTracker(config=config, use_mock_embedder=True)
@@ -338,8 +338,8 @@ class TestScoringFlags:
 
     def test_truncation_flags(self) -> None:
         """Truncated content should add truncation flags."""
-        from traceiq.models import TrackerConfig
-        from traceiq.tracker import InfluenceTracker
+        from inflion.models import TrackerConfig
+        from inflion.tracker import InfluenceTracker
 
         config = TrackerConfig(
             storage_backend="memory",

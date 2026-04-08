@@ -1,9 +1,14 @@
 # Changelog
 
-All notable changes to TraceIQ will be documented in this file.
+All notable changes to Inflion will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.1.0] - 2026-04-08
+
+### Changed
+- Renamed package from `traceiq` to `inflion`. No functional changes; reset version to `0.1.0` for the new identity.
 
 ## [0.2.0] - 2026-02-16
 

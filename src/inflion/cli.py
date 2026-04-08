@@ -1,4 +1,4 @@
-"""Click-based CLI for TraceIQ."""
+"""Click-based CLI for Inflion."""
 
 from __future__ import annotations
 
@@ -8,16 +8,16 @@ import click
 from rich.console import Console
 from rich.table import Table
 
-from traceiq.models import TrackerConfig
-from traceiq.tracker import InfluenceTracker
+from inflion.models import TrackerConfig
+from inflion.tracker import InfluenceTracker
 
 console = Console()
 
 
 @click.group()
-@click.version_option(prog_name="traceiq")
+@click.version_option(prog_name="inflion")
 def cli() -> None:
-    """TraceIQ: Measure AI-to-AI influence in multi-agent systems."""
+    """Inflion: Observability and influence tracing infrastructure for multi-agent AI systems."""
     pass
 
 
@@ -25,7 +25,7 @@ def cli() -> None:
 @click.option(
     "--db",
     type=click.Path(),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -34,7 +34,7 @@ def cli() -> None:
     help="Path to JSON config file",
 )
 def init(db: str, config: str | None) -> None:
-    """Initialize a new TraceIQ database."""
+    """Initialize a new Inflion database."""
     if config:
         with open(config) as f:
             config_data = json.load(f)
@@ -49,7 +49,7 @@ def init(db: str, config: str | None) -> None:
     tracker = InfluenceTracker(config=tracker_config, use_mock_embedder=True)
     tracker.close()
 
-    console.print(f"[green]Initialized TraceIQ database at:[/green] {db}")
+    console.print(f"[green]Initialized Inflion database at:[/green] {db}")
 
 
 @cli.command()
@@ -57,7 +57,7 @@ def init(db: str, config: str | None) -> None:
 @click.option(
     "--db",
     type=click.Path(),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -129,7 +129,7 @@ def ingest(input_file: str, db: str, mock_embedder: bool) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -164,7 +164,7 @@ def summary(db: str, top_n: int, as_json: bool) -> None:
             return
 
         # Rich formatted output
-        console.print("\n[bold]TraceIQ Summary Report[/bold]\n")
+        console.print("\n[bold]Inflion Summary Report[/bold]\n")
 
         # Overview table
         overview = Table(title="Overview")
@@ -218,7 +218,7 @@ def summary(db: str, top_n: int, as_json: bool) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -258,7 +258,7 @@ def export(db: str, output: str, fmt: str) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -341,7 +341,7 @@ def propagation_risk(db: str, window: int, as_json: bool) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -410,7 +410,7 @@ def alerts(db: str, threshold: float, as_json: bool) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -485,7 +485,7 @@ def capabilities() -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 def capabilities_load(registry_file: str, db: str) -> None:
@@ -510,7 +510,7 @@ def capabilities_load(registry_file: str, db: str) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -575,7 +575,7 @@ def plot() -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -587,7 +587,7 @@ def plot() -> None:
 )
 def plot_drift(db: str, output: str) -> None:
     """Plot drift over time."""
-    from traceiq.plotting import plot_drift_over_time
+    from inflion.plotting import plot_drift_over_time
 
     config = TrackerConfig(
         storage_backend="sqlite",
@@ -607,7 +607,7 @@ def plot_drift(db: str, output: str) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -619,7 +619,7 @@ def plot_drift(db: str, output: str) -> None:
 )
 def plot_heatmap(db: str, output: str) -> None:
     """Plot influence heatmap."""
-    from traceiq.plotting import plot_influence_heatmap
+    from inflion.plotting import plot_influence_heatmap
 
     config = TrackerConfig(
         storage_backend="sqlite",
@@ -640,7 +640,7 @@ def plot_heatmap(db: str, output: str) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -658,7 +658,7 @@ def plot_heatmap(db: str, output: str) -> None:
 )
 def plot_influencers(db: str, output: str, top_n: int) -> None:
     """Plot top influencers bar chart."""
-    from traceiq.plotting import plot_top_influencers
+    from inflion.plotting import plot_top_influencers
 
     config = TrackerConfig(
         storage_backend="sqlite",
@@ -679,7 +679,7 @@ def plot_influencers(db: str, output: str, top_n: int) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -697,7 +697,7 @@ def plot_influencers(db: str, output: str, top_n: int) -> None:
 )
 def plot_network(db: str, output: str, min_weight: float) -> None:
     """Plot influence network graph."""
-    from traceiq.plotting import plot_influence_network
+    from inflion.plotting import plot_influence_network
 
     config = TrackerConfig(
         storage_backend="sqlite",
@@ -722,7 +722,7 @@ def plot_network(db: str, output: str, min_weight: float) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -740,7 +740,7 @@ def plot_network(db: str, output: str, min_weight: float) -> None:
 )
 def plot_propagation_risk_cmd(db: str, output: str, window: int) -> None:
     """Plot propagation risk over time."""
-    from traceiq.plotting import plot_propagation_risk_over_time
+    from inflion.plotting import plot_propagation_risk_over_time
 
     config = TrackerConfig(
         storage_backend="sqlite",
@@ -763,7 +763,7 @@ def plot_propagation_risk_cmd(db: str, output: str, window: int) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -775,7 +775,7 @@ def plot_propagation_risk_cmd(db: str, output: str, window: int) -> None:
 )
 def plot_iqx_heatmap_cmd(db: str, output: str) -> None:
     """Plot IQx heatmap."""
-    from traceiq.plotting import plot_iqx_heatmap
+    from inflion.plotting import plot_iqx_heatmap
 
     config = TrackerConfig(
         storage_backend="sqlite",
@@ -799,7 +799,7 @@ def plot_iqx_heatmap_cmd(db: str, output: str) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -826,8 +826,8 @@ def report(db: str, run_id: str, output: str, fmt: str) -> None:
     """Generate a risk report from tracked data."""
     from pathlib import Path
 
-    from traceiq.report import generate_risk_report
-    from traceiq.schema import TraceIQEvent
+    from inflion.report import generate_risk_report
+    from inflion.schema import InflionEvent
 
     config = TrackerConfig(
         storage_backend="sqlite",
@@ -842,9 +842,9 @@ def report(db: str, run_id: str, output: str, fmt: str) -> None:
             console.print("[yellow]No events found in database[/yellow]")
             return
 
-        # Convert InteractionEvent to TraceIQEvent for report
+        # Convert InteractionEvent to InflionEvent for report
         trace_events = [
-            TraceIQEvent(
+            InflionEvent(
                 event_id=str(e.event_id),
                 run_id=run_id,
                 sender_id=e.sender_id,
@@ -872,7 +872,7 @@ def report(db: str, run_id: str, output: str, fmt: str) -> None:
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(
@@ -896,7 +896,7 @@ def calibrate_cmd(
     db: str, logs: str | None, target_alert_rate: float, as_json: bool
 ) -> None:
     """Calibrate risk thresholds from historical data."""
-    from traceiq.risk import calibrate_thresholds
+    from inflion.risk import calibrate_thresholds
 
     # Collect risk scores
     risk_scores: list[float] = []
@@ -968,7 +968,7 @@ def calibrate_cmd(
 @click.option(
     "--db",
     type=click.Path(exists=True),
-    default="traceiq.db",
+    default="inflion.db",
     help="Path to SQLite database file",
 )
 @click.option(

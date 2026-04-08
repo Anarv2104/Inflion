@@ -1,9 +1,9 @@
-"""Tests for the TraceIQEvent schema module."""
+"""Tests for the InflionEvent schema module."""
 
 import json
 import time
 
-from traceiq.schema import TraceIQEvent, compute_state_quality
+from inflion.schema import InflionEvent, compute_state_quality
 
 
 class TestComputeStateQuality:
@@ -44,12 +44,12 @@ class TestComputeStateQuality:
         assert quality == "high"
 
 
-class TestTraceIQEvent:
-    """Tests for TraceIQEvent model."""
+class TestInflionEvent:
+    """Tests for InflionEvent model."""
 
     def test_required_fields(self):
         """Test creation with required fields only."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="agent_a",
             receiver_id="agent_b",
@@ -66,7 +66,7 @@ class TestTraceIQEvent:
 
     def test_default_values(self):
         """Test that defaults are applied correctly."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -84,7 +84,7 @@ class TestTraceIQEvent:
 
     def test_auto_state_quality_low(self):
         """Test auto-computed state quality (low)."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -95,7 +95,7 @@ class TestTraceIQEvent:
 
     def test_auto_state_quality_medium(self):
         """Test auto-computed state quality (medium)."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -107,7 +107,7 @@ class TestTraceIQEvent:
 
     def test_auto_state_quality_high(self):
         """Test auto-computed state quality (high)."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -124,7 +124,7 @@ class TestTraceIQEvent:
         When user explicitly sets state_quality, it should be kept
         (the auto-compute only runs if state_quality is "low").
         """
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -137,7 +137,7 @@ class TestTraceIQEvent:
 
     def test_to_jsonl(self):
         """Test JSONL serialization."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -153,7 +153,7 @@ class TestTraceIQEvent:
 
     def test_from_jsonl(self):
         """Test JSONL deserialization."""
-        original = TraceIQEvent(
+        original = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -163,7 +163,7 @@ class TestTraceIQEvent:
             policy_action="quarantine",
         )
         jsonl = original.to_jsonl()
-        restored = TraceIQEvent.from_jsonl(jsonl)
+        restored = InflionEvent.from_jsonl(jsonl)
 
         assert restored.run_id == original.run_id
         assert restored.sender_id == original.sender_id
@@ -173,7 +173,7 @@ class TestTraceIQEvent:
 
     def test_with_policy(self):
         """Test with_policy method."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -190,7 +190,7 @@ class TestTraceIQEvent:
 
     def test_with_policy_allow(self):
         """Test with_policy for allow action."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -204,7 +204,7 @@ class TestTraceIQEvent:
 
     def test_with_policy_custom_event_type(self):
         """Test with_policy with custom event_type."""
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run_001",
             sender_id="a",
             receiver_id="b",
@@ -219,7 +219,7 @@ class TestTraceIQEvent:
     def test_unique_event_ids(self):
         """Test that event IDs are unique."""
         events = [
-            TraceIQEvent(
+            InflionEvent(
                 run_id="run",
                 sender_id="a",
                 receiver_id="b",
@@ -234,7 +234,7 @@ class TestTraceIQEvent:
     def test_timestamp_is_recent(self):
         """Test that timestamp is current."""
         before = time.time()
-        event = TraceIQEvent(
+        event = InflionEvent(
             run_id="run",
             sender_id="a",
             receiver_id="b",

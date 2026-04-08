@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Demo client for the TraceIQ MCP server.
+"""Demo client for the Inflion MCP server.
 
-This script demonstrates how to interact with the TraceIQ MCP server
+This script demonstrates how to interact with the Inflion MCP server
 by sending JSON requests via subprocess stdin/stdout.
 
 Usage:
@@ -38,11 +38,11 @@ def send_request(proc: subprocess.Popen, request: dict) -> dict:
 
 def main() -> None:
     """Run the demo client."""
-    print("TraceIQ MCP Demo Client")
+    print("Inflion MCP Demo Client")
     print("=" * 50)
 
     # Start server as subprocess
-    server_path = Path(__file__).parent / "mcp_server_traceiq.py"
+    server_path = Path(__file__).parent / "mcp_server_inflion.py"
     proc = subprocess.Popen(
         [sys.executable, str(server_path)],
         stdin=subprocess.PIPE,

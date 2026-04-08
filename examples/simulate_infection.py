@@ -2,7 +2,7 @@
 """
 Simulate an "idea infection" spreading through a multi-agent system.
 
-This example demonstrates how to use TraceIQ to track influence patterns
+This example demonstrates how to use Inflion to track influence patterns
 as one agent's ideas spread through a network of communicating agents.
 """
 
@@ -11,7 +11,7 @@ from __future__ import annotations
 import random
 from pathlib import Path
 
-from traceiq import InfluenceTracker, TrackerConfig
+from inflion import InfluenceTracker, TrackerConfig
 
 # Output directory for generated files
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -153,7 +153,7 @@ def simulate_infection_spread(
 def main() -> None:
     """Run the simulation and generate outputs."""
     print("=" * 60)
-    print("TraceIQ: Idea Infection Simulation")
+    print("Inflion: Idea Infection Simulation")
     print("=" * 60)
     print()
 
@@ -203,7 +203,7 @@ def main() -> None:
 
     # Generate plots if matplotlib is available
     try:
-        from traceiq.plotting import (
+        from inflion.plotting import (
             plot_drift_over_time,
             plot_influence_heatmap,
             plot_influence_network,
@@ -236,7 +236,7 @@ def main() -> None:
     except ImportError:
         print()
         print("Note: matplotlib not installed, skipping plot generation.")
-        print("Install with: pip install traceiq[plot]")
+        print("Install with: pip install inflion[plot]")
 
     tracker.close()
     print()
