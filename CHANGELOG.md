@@ -58,3 +58,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Fixed release version alignment after rebrand to Inflion.
 - Prepared stable tagged release for PyPI publishing.
+
+## [0.1.3] - 2026-04-08
+
+### Fixed
+- Removed leftover merge-conflict markers from `pyproject.toml`.
+- Restored valid packaging metadata and CI release flow after versioning/rebase issues.
