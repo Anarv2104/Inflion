@@ -4,7 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "inflion"
-version = "0.1.1"
+version = "0.1.2"
+>>>>>>> 4841bc8 (chore: bump version to 0.1.2)
 description = "Observability and influence tracing infrastructure for multi-agent AI systems."
 readme = "README.md"
 license = {text = "MIT"}

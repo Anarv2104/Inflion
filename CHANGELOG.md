@@ -52,3 +52,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CSV and JSONL export functions
 - Comprehensive test suite
 - MkDocs documentation
+
+## [0.1.2] - 2026-04-08
+
+### Changed
+- Fixed release version alignment after rebrand to Inflion.
+- Prepared stable tagged release for PyPI publishing.
