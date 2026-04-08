@@ -4,7 +4,7 @@
 
 <h1 align="center">Inflion</h1>
 
-> **Note:** This project was previously released as **TraceIQ**. It has been renamed to **Inflion** starting with `v0.1.0`. The API and behavior are unchanged.
+> **Note:** This project was previously released as **TraceIQ** and has been renamed to **Inflion**. The API and behavior remain unchanged.
 
 <p align="center">
   <strong>
@@ -14,9 +14,9 @@ providing reproducible metrics for semantic drift, propagation risk, and reasoni
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/v/inflion.svg" alt="PyPI version"></a>
-  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/pyversions/inflion.svg" alt="Python versions"></a>
-  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/l/inflion.svg" alt="License"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/v/inflion.svg?cacheSeconds=60" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/pyversions/inflion.svg?cacheSeconds=60" alt="Python versions"></a>
+  <a href="https://pypi.org/project/inflion/"><img src="https://img.shields.io/pypi/l/inflion.svg?cacheSeconds=60" alt="License"></a>
   <a href="https://pepy.tech/project/inflion"><img src="https://static.pepy.tech/badge/inflion" alt="Downloads"></a>
 </p>
 
